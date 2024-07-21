@@ -24,7 +24,8 @@ checkly/                              # root dir
 ├── src/test/java
      ├── checkly.tests.api.**         # api tests                 
      ├── checkly.tests.ui.**          # ui tests
-     └── test.utils                   # helper methods for tests                                   
+     └── test.utils                   # helper methods for tests
+├── src/test/respurces                # properties files, data for tests                           
 ├── pom.xml                           # dependency management
 ├── checkly-api.xml                   # xml file for api tests
 ├── checkly.ui.xml                    # xml file to test ui 
