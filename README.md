@@ -34,7 +34,7 @@ checkly/                              # root dir
 
 ### Test Runs
 
-* How to run the test? `mvn test`path\to\testng.xml`
+* How to run the test? `mvn test path\to\testng.xml`
 
 
 
