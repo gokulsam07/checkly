@@ -3,20 +3,19 @@ package checkly.tests.ui.base;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
 import com.codeborne.selenide.WebDriverRunner;
 
 public class BaseTest {
 
-	@BeforeEach
+	@BeforeMethod
 	public void launch() {
 		open("");
 		WebDriverRunner.getWebDriver().manage().window().maximize();
 	}
 	
-	@AfterEach
+	@AfterMethod
 	public void tearDown() {
 		closeWebDriver();
 	}

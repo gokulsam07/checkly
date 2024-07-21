@@ -1,7 +1,8 @@
 package checkly.tests.ui.login;
 
 import static org.assertj.core.api.Assertions.*;
-import org.junit.jupiter.api.Test;
+
+import org.testng.annotations.Test;
 
 import checkly.tests.ui.base.BaseTest;
 import pages.HomePage;
