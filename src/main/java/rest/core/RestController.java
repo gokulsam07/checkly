@@ -1,12 +1,16 @@
 package rest.core;
 
-import org.json.JSONObject;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
+import java.io.FileReader;
 import java.util.Map;
+
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.SneakyThrows;
 
 public class RestController {
 
@@ -64,5 +68,11 @@ public class RestController {
 	    }
 	    Response res =reqSpec.body(data).put(endpoint);
 	    return res;
+	}
+	@SneakyThrows //not useful
+	public boolean validateResponse(String actual,String xpectedResPath) {
+		JSONObject actualResponse = new JSONObject(actual);
+		JSONObject expectedResponse = new JSONObject(new JSONTokener(new FileReader(xpectedResPath)));
+		return (expectedResponse.similar(actualResponse))?true:false;
 	}
 }
