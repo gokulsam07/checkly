@@ -22,57 +22,47 @@ public class RestController {
 				.header("x-checkly-account", account_Id);
 	}
 
-	public Response get(String endpoint, Map<String, String> pathParams, Map<String, String> queryParams) {
-		RequestSpecification reqSpec = req;
-		if (pathParams != null) {
-			for (Map.Entry<String, String> entry : pathParams.entrySet()) {
-				reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
-			}
-		}
-		if (queryParams != null) {
-			reqSpec = reqSpec.queryParams(queryParams);
-		}
-		return reqSpec.get(endpoint);
+	public Response get(String endpoint, Map<String, String> pathParams) {
+	    RequestSpecification reqSpec = req;
+	    if (pathParams != null) {
+	        for (Map.Entry<String, String> entry : pathParams.entrySet()) {
+	            reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
+	        }
+	    }
+	    Response res = reqSpec.get(endpoint);
+	    return res;
 	}
 
-	public Response post(String endpoint, JSONObject data, Map<String, String> pathParams,
-			Map<String, String> queryParams) {
-		RequestSpecification reqSpec = req;
-		if (pathParams != null) {
-			for (Map.Entry<String, String> entry : pathParams.entrySet()) {
-				reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
-			}
-		}
-		if (queryParams != null) {
-			reqSpec = reqSpec.queryParams(queryParams);
-		}
-		return reqSpec.body(data).post(endpoint);
+	public Response post(String endpoint, String data, Map<String, String> pathParams) {
+	    RequestSpecification reqSpec = req;
+	    if (pathParams != null) {
+	        for (Map.Entry<String, String> entry : pathParams.entrySet()) {
+	            reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
+	        }
+	    }
+	    Response res = reqSpec.body(data).post(endpoint);
+	    return res;
 	}
 
-	public Response delete(String endpoint, Map<String, String> pathParams, Map<String, String> queryParams) {
-		RequestSpecification reqSpec = req;
-		if (pathParams != null) {
-			for (Map.Entry<String, String> entry : pathParams.entrySet()) {
-				reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
-			}
-		}
-		if (queryParams != null) {
-			reqSpec = reqSpec.queryParams(queryParams);
-		}
-		return reqSpec.delete(endpoint);
+	public Response delete(String endpoint, Map<String, String> pathParams) {
+	    RequestSpecification reqSpec = req;
+	    if (pathParams != null) {
+	        for (Map.Entry<String, String> entry : pathParams.entrySet()) {
+	            reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
+	        }
+	    }
+	    Response res = reqSpec.delete(endpoint);
+	    return res;
 	}
 
-	public Response put(String endpoint, JSONObject data, Map<String, String> pathParams,
-			Map<String, String> queryParams) {
-		RequestSpecification reqSpec = req;
-		if (pathParams != null) {
-			for (Map.Entry<String, String> entry : pathParams.entrySet()) {
-				reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
-			}
-		}
-		if (queryParams != null) {
-			reqSpec = reqSpec.queryParams(queryParams);
-		}
-		return reqSpec.body(data).put(endpoint);
+	public Response put(String endpoint, String data, Map<String, String> pathParams) {
+	    RequestSpecification reqSpec = req;
+	    if (pathParams != null) {
+	        for (Map.Entry<String, String> entry : pathParams.entrySet()) {
+	            reqSpec = reqSpec.pathParam(entry.getKey(), entry.getValue());
+	        }
+	    }
+	    Response res =reqSpec.body(data).put(endpoint);
+	    return res;
 	}
 }
