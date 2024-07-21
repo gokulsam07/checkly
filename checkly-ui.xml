@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite thread-count="4" parallel="classes" name="checkly-automation">
-  <test thread-count="4" parallel="classes" name="ui-api-combined">
+  <test thread-count="4" parallel="classes" name="checkly-ui">
     <classes>
-      <class name="checkly.tests.api.dashboards.DashboardTest"/>
-      <class name="checkly.tests.ui.base.BaseTest"/>
-      <class name="checkly.tests.ui.base.LoggedInBase"/>
-      <class name="checkly.tests.ui.dashboards.DashboardTest"/>
       <class name="checkly.tests.ui.reporting.ReportingTest"/>
       <class name="checkly.tests.ui.homepage.HomePageTest"/>
       <class name="checkly.tests.ui.login.LoginTest"/>
+      <class name="checkly.tests.ui.dashboards.DashboardTest"/>
     </classes>
-  </test> <!-- ui-api-combined -->
+  </test> <!-- checkly-tests -->
 </suite> <!-- checkly-automation -->
