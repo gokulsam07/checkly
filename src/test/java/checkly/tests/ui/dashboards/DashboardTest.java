@@ -2,7 +2,7 @@ package checkly.tests.ui.dashboards;
 
 import org.testng.annotations.Test;
 
-import checkly.tests.ui.base.LoggedInBase;
+import checkly.tests.ui.base.LoggedInBaseTest;
 import lombok.SneakyThrows;
 import lombok.extern.java.Log;
 
@@ -11,7 +11,8 @@ import pages.DashboardsPage;
 import pages.HomePage;
 import ui.core.Page;
 @Log
-public class DashboardTest extends LoggedInBase {
+@Test(groups = {"ui"})
+public class DashboardTest extends LoggedInBaseTest {
 
 	@Test
 	@SneakyThrows

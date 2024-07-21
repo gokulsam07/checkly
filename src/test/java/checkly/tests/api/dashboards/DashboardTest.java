@@ -12,6 +12,7 @@ import lombok.extern.java.Log;
 import rest.core.RestController;
 import test.utils.Stringify;
 @Log
+@Test(groups = {"api"})
 public class DashboardTest {
 	private static String path = null;
 	private String dashboardId ="";
@@ -62,7 +63,7 @@ public class DashboardTest {
 		Response res = new RestController().delete("dashboards/{dashboardId}",hm);
 		res.then().statusCode(204);
 	}
-	
+	@Test(enabled=false)
 	public void deleteAnyExistingDashboard() {
 		HashMap<String,String> hm =  new HashMap<>();
 		String deleteId = new RestController().get("dashboards",null).jsonPath().getString("dashboardId").replace("[", "").replace("]", "");

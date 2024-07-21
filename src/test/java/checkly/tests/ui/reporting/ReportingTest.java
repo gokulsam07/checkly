@@ -6,11 +6,11 @@ import static org.assertj.core.api.Assertions.*;
 
 import org.testng.annotations.Test;
 
-import checkly.tests.ui.base.LoggedInBase;
+import checkly.tests.ui.base.LoggedInBaseTest;
 import pages.HomePage;
 import pages.ReportingPage;
-
-public class ReportingTest extends LoggedInBase {
+@Test(groups = {"ui"})
+public class ReportingTest extends LoggedInBaseTest {
 	
 	@Test
 	public void validateReportingPageTest() {

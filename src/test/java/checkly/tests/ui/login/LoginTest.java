@@ -9,7 +9,7 @@ import checkly.tests.ui.base.BaseTest;
 import pages.HomePage;
 import pages.LoginPage;
 import test.utils.Prop;
-
+@Test(groups = {"ui"})
 public class LoginTest extends BaseTest {
 	String uname = Prop.get("login.properties", "username");
 	String pwd = Prop.get("login.properties", "password");

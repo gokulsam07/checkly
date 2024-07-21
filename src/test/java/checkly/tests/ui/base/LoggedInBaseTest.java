@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 
 import com.codeborne.selenide.WebDriverRunner;
 
-public class LoggedInBase {
+public class LoggedInBaseTest {
 	String uname = Prop.get("login.properties", "username");
 	String pwd = Prop.get("login.properties", "password");
 	@BeforeMethod
