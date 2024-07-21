@@ -62,4 +62,18 @@ public class DashboardTest {
 		Response res = new RestController().delete("dashboards/{dashboardId}",hm);
 		res.then().statusCode(204);
 	}
+	
+	public void deleteAnyExistingDashboard() {
+		Response res = new RestController().get("dashboards",null);
+		res.jsonPath().get("dashboardId").toString();
+		HashMap<String,String> hm =  new HashMap<>();
+		hm.put("dashboardId", dashboardId);
+		Response res1 = new RestController().delete("dashboards/{dashboardId}",hm);
+		if(res1.statusCode()==204) {
+			log.info("Dashboard "+dashboardId + " deleted");
+		}else {
+			log.info("There is no dashboard to delete");
+		}
+		
+	}
 }
