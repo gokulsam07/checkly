@@ -1,0 +1,16 @@
+  {
+        "width": "FULL",
+        "refreshRate": 60,
+        "paginate": true,
+        "paginationRate": 60,
+        "checksPerPage": 15,
+        "useTagsAndOperator": false,
+        "hideTags": false,
+        "enableIncidents": false,
+        "expandChecks": false,
+        "showHeader": true,
+        "isPrivate": false,
+        "showP95": true,
+        "showP99": true,
+        "description": "Edited the description to test"
+   }

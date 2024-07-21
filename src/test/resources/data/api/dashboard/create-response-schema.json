@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "expandChecks": {
+      "type": "boolean"
+    },
+    "favicon": {
+      "type": "string"
+    },
+    "showHeader": {
+      "type": "boolean"
+    },
+    "link": {
+      "type": "string"
+    },
+    "paginate": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    },
+    "isPrivate": {
+      "type": "boolean"
+    },
+    "showP99": {
+      "type": "boolean"
+    },
+    "useTagsAndOperator": {
+      "type": "boolean"
+    },
+    "checksPerPage": {
+      "type": "integer"
+    },
+    "customUrl": {
+      "type": "string"
+    },
+    "refreshRate": {
+      "type": "integer"
+    },
+    "showP95": {
+      "type": "boolean"
+    },
+    "width": {
+      "type": "string"
+    },
+    "header": {
+      "type": "string"
+    },
+    "enableIncidents": {
+      "type": "boolean"
+    },
+    "paginationRate": {
+      "type": "integer"
+    },
+    "hideTags": {
+      "type": "boolean"
+    },
+    "tags": {
+      "type": "array",
+      "items": {}
+    },
+    "customCSS": {
+      "type": "string"
+    },
+    "keys": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "maskedKey": {
+              "type": "string"
+            },
+            "rawKey": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "maskedKey",
+            "rawKey",
+            "created_at"
+          ]
+        }
+      ]
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "dashboardId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer"
+    }
+  }
+}
