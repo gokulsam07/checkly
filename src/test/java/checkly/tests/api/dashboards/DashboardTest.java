@@ -25,7 +25,7 @@ public class DashboardTest {
 		Response res = new RestController().post("dashboards", data.toString(), null);
 		log.info(res.body().asPrettyString());
 		assertThat(res.statusCode()).isEqualTo(201);
-		dashboardId = res.jsonPath().get("dashboardId").toString();
+		dashboardId = res.jsonPath().getString("dashboardId");
 		res.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File(path+"dashboard/create-response-schema.json")));
 	}
 	
@@ -64,16 +64,15 @@ public class DashboardTest {
 	}
 	
 	public void deleteAnyExistingDashboard() {
-		Response res = new RestController().get("dashboards",null);
-		res.jsonPath().get("dashboardId").toString();
 		HashMap<String,String> hm =  new HashMap<>();
-		hm.put("dashboardId", dashboardId);
-		Response res1 = new RestController().delete("dashboards/{dashboardId}",hm);
+		String deleteId = new RestController().get("dashboards",null).jsonPath().getString("dashboardId").replace("[", "").replace("]", "");
+		hm.put("deleteId",deleteId);
+		Response res1 = new RestController().delete("dashboards/{deleteId}",hm);
+		System.out.println(res1.body().asPrettyString());
 		if(res1.statusCode()==204) {
-			log.info("Dashboard "+dashboardId + " deleted");
+			log.info("Dashboard deleted");
 		}else {
 			log.info("There is no dashboard to delete");
 		}
-		
 	}
 }

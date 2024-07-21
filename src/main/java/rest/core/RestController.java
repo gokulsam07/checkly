@@ -34,6 +34,7 @@ public class RestController {
 	        }
 	    }
 	    Response res = reqSpec.get(endpoint);
+	    System.out.println(res.asPrettyString());
 	    return res;
 	}
 
@@ -45,6 +46,7 @@ public class RestController {
 	        }
 	    }
 	    Response res = reqSpec.body(data).post(endpoint);
+	    System.out.println(res.asPrettyString());
 	    return res;
 	}
 
@@ -56,6 +58,7 @@ public class RestController {
 	        }
 	    }
 	    Response res = reqSpec.delete(endpoint);
+	    System.out.println(res.asPrettyString());
 	    return res;
 	}
 

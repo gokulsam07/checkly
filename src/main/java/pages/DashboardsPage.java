@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.java.Log;
+
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import ui.core.Time;
@@ -23,5 +25,13 @@ public class DashboardsPage {
 
 	public boolean validateDashBoard(String boardName) {
 		return $("h4[title=\"" + boardName + "\"]").is(visible,Time.MED);
+	}
+	
+	public void clickDashboard(String board) {
+		$("h4[title=\"" + board + "\"]").shouldBe(visible,Time.MED).click();
+	}
+	
+	public void validateDescription(String desc) {
+		$("p[class$='typography--p']").shouldHave(Condition.text(desc),Time.LOW);
 	}
 }
