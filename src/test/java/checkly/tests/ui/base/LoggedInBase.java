@@ -1,5 +1,6 @@
 package checkly.tests.ui.base;
 
+import org.testng.annotations.AfterMethod;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
 import pages.LoginPage;

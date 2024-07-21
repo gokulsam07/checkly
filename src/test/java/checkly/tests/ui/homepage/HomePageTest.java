@@ -1,6 +1,7 @@
 package checkly.tests.ui.homepage;
 
 
+import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.*;
 
 import org.testng.annotations.Test;
