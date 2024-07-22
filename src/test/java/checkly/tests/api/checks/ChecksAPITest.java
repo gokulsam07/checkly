@@ -70,7 +70,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _5updateAPICheck(ITestContext id) {
+	public void _5updateAPICheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkAPIId);
 		String testName = "Edited API Check";
@@ -81,7 +81,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _6UpdateBrowserCheck(ITestContext id) {
+	public void _6UpdateBrowserCheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkBrowserId);
 		String testName = "Edited Browser Check";
@@ -105,6 +105,13 @@ public class ChecksAPITest {
 		hm.put("id", checkBrowserId);
 		Response res = new RestController().delete("checks/{id}", hm);
 		res.then().statusCode(204);
+	}
+
+	@Test(enabled = false)
+	public void deleteCheckAPI(String id) {
+		checkAPIId = id;
+		_7deleteAPICheck();
+
 	}
 
 }

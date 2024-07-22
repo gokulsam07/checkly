@@ -3,7 +3,8 @@
 <suite thread-count="4" parallel="classes" name="checkly-automation">
   <test thread-count="4" parallel="classes" name="api-test">
     <classes>
-      <class name="checkly.tests.api.dashboards.DashboardTest"/>
+      <class name="checkly.tests.api.dashboards.DashboardAPITest"/>
+      <class name="checkly.tests.api.checks.ChecksAPITest"/>
     </classes>
   </test> <!-- api-test -->
 </suite> <!-- checkly-automation -->
