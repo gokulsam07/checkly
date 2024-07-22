@@ -13,8 +13,6 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<groups>default-group</groups>
-		<suiteXmlFiles>default-suite.xml</suiteXmlFiles>
 	</properties>
 
 	<dependencies>

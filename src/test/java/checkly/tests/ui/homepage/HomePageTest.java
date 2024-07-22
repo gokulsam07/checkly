@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import checkly.tests.ui.base.LoggedInBaseTest;
 import pages.HomePage;
-@Test(groups = {"ui"})
+
 public class HomePageTest extends LoggedInBaseTest {
 	String[] menuList = new String[] {"Home","Heartbeats","Test sessions","Events","Alerts","Dashboards","Reporting","Invite account members"};
 	@Test

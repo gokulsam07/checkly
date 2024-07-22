@@ -1,3 +1,4 @@
 target/
 surefire-reports/
 test-output/
+build/

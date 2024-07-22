@@ -11,7 +11,7 @@ import pages.DashboardsPage;
 import pages.HomePage;
 import ui.core.Page;
 @Log
-@Test(groups = {"ui"})
+
 public class DashboardTest extends LoggedInBaseTest {
 
 	@Test
