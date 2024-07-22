@@ -13,7 +13,7 @@ import rest.core.RestController;
 import test.utils.Stringify;
 @Log
 @Test(groups = {"api"})
-public class DashboardTest {
+public class DashboardAPITest {
 	private static String path = null;
 	private String dashboardId ="";
 	static {

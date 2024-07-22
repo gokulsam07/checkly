@@ -1,0 +1,36 @@
+{
+  "activated": false,
+  "muted": true,
+  "doubleCheck": false,
+  "shouldFail": false,
+  "alertSettings": {
+    "escalationType": "RUN_BASED",
+    "reminders": {
+      "amount": 0,
+      "interval": 5
+    },
+    "runBasedEscalation": {
+      "failedRunThreshold": 1
+    },
+    "parallelRunFailureThreshold": {
+      "enabled": false,
+      "percentage": 10
+    }
+  },
+  "useGlobalAlertSettings": false,
+  "groupId": null,
+  "groupOrder": null,
+  "runtimeId": null,
+  "retryStrategy": {
+    "type": "FIXED",
+    "baseBackoffSeconds": 60,
+    "maxRetries": 2,
+    "maxDurationSeconds": 600,
+    "sameRegion": true
+  },
+  "runParallel": false,
+  "frequency": 10,
+  "name": "Edited Browser Check",
+  "locations": ["ap-south-1"],
+  "script": "const { expect, test } = require('@playwright/test'); test.setTimeout(210000); test.use({ actionTimeout: 10000 }); test('screenshot test', async () => { const browser = await chromium.launch({ headless: false, channel: 'chrome' }); const page = await browser.newPage(); await page.goto('https://facebook.com'); await page.waitForLoadState('networkidle'); const name = await page.locator('id=pass'); await name.screenshot({ path: 'element.png' }); await name.focus(); await name.fill('gokuls2381@gmail.com'); await page.screenshot({ path: 'screenshot.png', fullPage: true }); await browser.close(); });"
+}

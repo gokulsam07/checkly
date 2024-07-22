@@ -1,0 +1,49 @@
+{
+  "activated": false,
+  "muted": true,
+  "doubleCheck": false,
+  "shouldFail": false,
+  "alertSettings": {
+    "escalationType": "RUN_BASED",
+    "reminders": {
+      "amount": 0,
+      "interval": 30
+    },
+    "runBasedEscalation": {
+      "failedRunThreshold": 1
+    },
+    "parallelRunFailureThreshold": {
+      "enabled": false,
+      "percentage": 10
+    }
+  },
+  "useGlobalAlertSettings": false,
+  "groupId": null,
+  "groupOrder": null,
+  "runtimeId": null,
+  "retryStrategy": {
+    "type": "FIXED",
+    "baseBackoffSeconds": 60,
+    "maxRetries": 2,
+    "maxDurationSeconds": 600,
+    "sameRegion": true
+  },
+  "runParallel": false,
+  "request": {
+    "method": "GET",
+    "url": "https://api.checklyhq.com",
+    "skipSSL": false,
+    "ipFamily": "IPv4",
+    "bodyType": "JSON"
+  },
+  "frequency": 1440,
+  "tearDownSnippetId": null,
+  "setupSnippetId": null,
+  "localSetupScript": null,
+  "localTearDownScript": null,
+  "degradedResponseTime": 10000,
+  "maxResponseTime": 20000,
+  "name": "Sample API Check",
+  "locations": ["ap-south-1"],
+  "tags": ["rest-check"]
+}

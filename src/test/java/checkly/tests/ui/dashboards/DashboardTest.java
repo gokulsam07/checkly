@@ -18,12 +18,12 @@ public class DashboardTest extends LoggedInBaseTest {
 	@SneakyThrows
 	public void _1createAndValidateDashboard() {
 		new HomePage().clickSidePanelMenu("Dashboards");
-		new checkly.tests.api.dashboards.DashboardTest().deleteAnyExistingDashboard();
+		new checkly.tests.api.dashboards.DashboardAPITest().deleteAnyExistingDashboard();
 		Thread.sleep(1000);
 		Page.refresh();
 		boolean isEmpty = new DashboardsPage().validateEmptyScreen();
 		if(isEmpty) {
-			new checkly.tests.api.dashboards.DashboardTest()._1createBoard();
+			new checkly.tests.api.dashboards.DashboardAPITest()._1createBoard();
 			Thread.sleep(1000);
 			Page.refresh();
 			assertThat(new DashboardsPage().validateDashBoard("Gokul's Dashboard")).isTrue();
@@ -47,7 +47,7 @@ public class DashboardTest extends LoggedInBaseTest {
 		new HomePage().clickSidePanelMenu("Dashboards");
 		boolean isVisible = new DashboardsPage().validateDashBoard("Gokul's Dashboard");
 		if(isVisible) {
-			new checkly.tests.api.dashboards.DashboardTest().deleteAnyExistingDashboard();
+			new checkly.tests.api.dashboards.DashboardAPITest().deleteAnyExistingDashboard();
 			Page.refresh();
 			Thread.sleep(1000);
 			assertThat(new DashboardsPage().validateEmptyScreen()).isTrue();

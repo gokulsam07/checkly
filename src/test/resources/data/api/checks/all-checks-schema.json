@@ -1,0 +1,388 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "type": "array",
+    "items": {
+        "$ref": "#/definitions/Welcome7Element"
+    },
+    "definitions": {
+        "Welcome7Element": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "checkType": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "frequency": {
+                    "type": "integer"
+                },
+                "frequencyOffset": {
+                    "type": "integer"
+                },
+                "activated": {
+                    "type": "boolean"
+                },
+                "muted": {
+                    "type": "boolean"
+                },
+                "shouldFail": {
+                    "type": "boolean"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "script": {
+                    "anyOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ]
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updated_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "environmentVariables": {
+                    "type": "array",
+                    "items": {}
+                },
+                "doubleCheck": {
+                    "type": "boolean"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sslCheckDomain": {
+                    "type": "string"
+                },
+                "setupSnippetId": {
+                    "type": "null"
+                },
+                "tearDownSnippetId": {
+                    "type": "null"
+                },
+                "localSetupScript": {
+                    "type": "null"
+                },
+                "localTearDownScript": {
+                    "type": "null"
+                },
+                "alertSettings": {
+                    "$ref": "#/definitions/AlertSettings"
+                },
+                "useGlobalAlertSettings": {
+                    "type": "boolean"
+                },
+                "degradedResponseTime": {
+                    "type": "integer"
+                },
+                "maxResponseTime": {
+                    "type": "integer"
+                },
+                "groupId": {
+                    "type": "null"
+                },
+                "groupOrder": {
+                    "type": "null"
+                },
+                "runtimeId": {
+                    "type": "null"
+                },
+                "scriptPath": {
+                    "type": "null"
+                },
+                "retryStrategy": {
+                    "type": "null"
+                },
+                "runParallel": {
+                    "type": "boolean"
+                },
+                "privateLocations": {
+                    "type": "array",
+                    "items": {}
+                },
+                "request": {
+                    "$ref": "#/definitions/Request"
+                },
+                "alertChannelSubscriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AlertChannelSubscription"
+                    }
+                }
+            },
+            "required": [
+                "activated",
+                "alertChannelSubscriptions",
+                "alertSettings",
+                "checkType",
+                "created_at",
+                "degradedResponseTime",
+                "doubleCheck",
+                "environmentVariables",
+                "frequency",
+                "frequencyOffset",
+                "groupId",
+                "groupOrder",
+                "id",
+                "localSetupScript",
+                "localTearDownScript",
+                "locations",
+                "maxResponseTime",
+                "muted",
+                "name",
+                "privateLocations",
+                "retryStrategy",
+                "runParallel",
+                "runtimeId",
+                "script",
+                "scriptPath",
+                "setupSnippetId",
+                "shouldFail",
+                "sslCheckDomain",
+                "tags",
+                "tearDownSnippetId",
+                "updated_at",
+                "useGlobalAlertSettings"
+            ],
+            "title": "Welcome7Element"
+        },
+        "AlertChannelSubscription": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "alertChannelId": {
+                    "type": "integer"
+                },
+                "activated": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "activated",
+                "alertChannelId"
+            ],
+            "title": "AlertChannelSubscription"
+        },
+        "AlertSettings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "reminders": {
+                    "$ref": "#/definitions/Reminders"
+                },
+                "escalationType": {
+                    "type": "string"
+                },
+                "runBasedEscalation": {
+                    "$ref": "#/definitions/RunBasedEscalation"
+                },
+                "timeBasedEscalation": {
+                    "$ref": "#/definitions/TimeBasedEscalation"
+                },
+                "parallelRunFailureThreshold": {
+                    "$ref": "#/definitions/ParallelRunFailureThreshold"
+                }
+            },
+            "required": [
+                "escalationType",
+                "parallelRunFailureThreshold",
+                "reminders",
+                "runBasedEscalation",
+                "timeBasedEscalation"
+            ],
+            "title": "AlertSettings"
+        },
+        "ParallelRunFailureThreshold": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "percentage": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "enabled",
+                "percentage"
+            ],
+            "title": "ParallelRunFailureThreshold"
+        },
+        "Reminders": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "integer"
+                },
+                "interval": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "amount",
+                "interval"
+            ],
+            "title": "Reminders"
+        },
+        "RunBasedEscalation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "failedRunThreshold": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "failedRunThreshold"
+            ],
+            "title": "RunBasedEscalation"
+        },
+        "TimeBasedEscalation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "minutesFailingThreshold": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "minutesFailingThreshold"
+            ],
+            "title": "TimeBasedEscalation"
+        },
+        "Request": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "body": {
+                    "type": "string"
+                },
+                "bodyType": {
+                    "type": "string"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {}
+                },
+                "queryParameters": {
+                    "type": "array",
+                    "items": {}
+                },
+                "assertions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Assertion"
+                    }
+                },
+                "basicAuth": {
+                    "$ref": "#/definitions/BasicAuth"
+                },
+                "followRedirects": {
+                    "type": "boolean"
+                },
+                "skipSSL": {
+                    "type": "boolean"
+                },
+                "ipFamily": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "assertions",
+                "basicAuth",
+                "body",
+                "bodyType",
+                "followRedirects",
+                "headers",
+                "ipFamily",
+                "method",
+                "queryParameters",
+                "skipSSL",
+                "url"
+            ],
+            "title": "Request"
+        },
+        "Assertion": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "regex": {
+                    "type": "null"
+                },
+                "source": {
+                    "type": "string"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "property": {
+                    "type": "string"
+                },
+                "comparison": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "comparison",
+                "property",
+                "regex",
+                "source",
+                "target"
+            ],
+            "title": "Assertion"
+        },
+        "BasicAuth": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "password",
+                "username"
+            ],
+            "title": "BasicAuth"
+        }
+    }
+}

@@ -1,0 +1,309 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome10",
+    "definitions": {
+        "Welcome10": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "activated": {
+                    "type": "boolean"
+                },
+                "muted": {
+                    "type": "boolean"
+                },
+                "doubleCheck": {
+                    "type": "boolean"
+                },
+                "shouldFail": {
+                    "type": "boolean"
+                },
+                "alertSettings": {
+                    "$ref": "#/definitions/AlertSettings"
+                },
+                "useGlobalAlertSettings": {
+                    "type": "boolean"
+                },
+                "groupId": {
+                    "type": "null"
+                },
+                "groupOrder": {
+                    "type": "null"
+                },
+                "runtimeId": {
+                    "type": "null"
+                },
+                "retryStrategy": {
+                    "$ref": "#/definitions/RetryStrategy"
+                },
+                "runParallel": {
+                    "type": "boolean"
+                },
+                "request": {
+                    "$ref": "#/definitions/Request"
+                },
+                "frequency": {
+                    "type": "integer"
+                },
+                "tearDownSnippetId": {
+                    "type": "null"
+                },
+                "setupSnippetId": {
+                    "type": "null"
+                },
+                "localSetupScript": {
+                    "type": "null"
+                },
+                "localTearDownScript": {
+                    "type": "null"
+                },
+                "degradedResponseTime": {
+                    "type": "integer"
+                },
+                "maxResponseTime": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "locations": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "checkType": {
+                    "type": "string"
+                },
+                "alertChannelSubscriptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AlertChannelSubscription"
+                    }
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "frequencyOffset": {
+                    "type": "integer"
+                },
+                "privateLocations": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "activated",
+                "alertChannelSubscriptions",
+                "alertSettings",
+                "checkType",
+                "created_at",
+                "degradedResponseTime",
+                "doubleCheck",
+                "frequency",
+                "frequencyOffset",
+                "groupId",
+                "groupOrder",
+                "id",
+                "localSetupScript",
+                "localTearDownScript",
+                "locations",
+                "maxResponseTime",
+                "muted",
+                "name",
+                "privateLocations",
+                "request",
+                "retryStrategy",
+                "runParallel",
+                "runtimeId",
+                "setupSnippetId",
+                "shouldFail",
+                "tags",
+                "tearDownSnippetId",
+                "useGlobalAlertSettings"
+            ],
+            "title": "Welcome10"
+        },
+        "AlertChannelSubscription": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "activated": {
+                    "type": "boolean"
+                },
+                "alertChannelId": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "activated",
+                "alertChannelId"
+            ],
+            "title": "AlertChannelSubscription"
+        },
+        "AlertSettings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "escalationType": {
+                    "type": "string"
+                },
+                "reminders": {
+                    "$ref": "#/definitions/Reminders"
+                },
+                "runBasedEscalation": {
+                    "$ref": "#/definitions/RunBasedEscalation"
+                },
+                "parallelRunFailureThreshold": {
+                    "$ref": "#/definitions/ParallelRunFailureThreshold"
+                }
+            },
+            "required": [
+                "escalationType",
+                "parallelRunFailureThreshold",
+                "reminders",
+                "runBasedEscalation"
+            ],
+            "title": "AlertSettings"
+        },
+        "ParallelRunFailureThreshold": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "percentage": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "enabled",
+                "percentage"
+            ],
+            "title": "ParallelRunFailureThreshold"
+        },
+        "Reminders": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "amount": {
+                    "type": "integer"
+                },
+                "interval": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "amount",
+                "interval"
+            ],
+            "title": "Reminders"
+        },
+        "RunBasedEscalation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "failedRunThreshold": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "failedRunThreshold"
+            ],
+            "title": "RunBasedEscalation"
+        },
+        "Request": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "method": {
+                    "type": "string"
+                },
+                "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "skipSSL": {
+                    "type": "boolean"
+                },
+                "ipFamily": {
+                    "type": "string"
+                },
+                "bodyType": {
+                    "type": "string"
+                },
+                "body": {
+                    "type": "string"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {}
+                },
+                "queryParameters": {
+                    "type": "array",
+                    "items": {}
+                },
+                "assertions": {
+                    "type": "array",
+                    "items": {}
+                }
+            },
+            "required": [
+                "assertions",
+                "body",
+                "bodyType",
+                "headers",
+                "ipFamily",
+                "method",
+                "queryParameters",
+                "skipSSL",
+                "url"
+            ],
+            "title": "Request"
+        },
+        "RetryStrategy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "baseBackoffSeconds": {
+                    "type": "integer"
+                },
+                "maxRetries": {
+                    "type": "integer"
+                },
+                "maxDurationSeconds": {
+                    "type": "integer"
+                },
+                "sameRegion": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "baseBackoffSeconds",
+                "maxDurationSeconds",
+                "maxRetries",
+                "sameRegion",
+                "type"
+            ],
+            "title": "RetryStrategy"
+        }
+    }
+}

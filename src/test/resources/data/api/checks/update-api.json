@@ -1,0 +1,47 @@
+{
+  "activated": true,
+  "muted": false,
+  "doubleCheck": true,
+  "shouldFail": false,
+  "alertSettings": {
+    "escalationType": "RUN_BASED",
+    "reminders": {
+      "amount": 0,
+      "interval": 5
+    },
+    "runBasedEscalation": {
+      "failedRunThreshold": 1
+    },
+    "parallelRunFailureThreshold": {
+      "enabled": false,
+      "percentage": 10
+    }
+  },
+  "useGlobalAlertSettings": true,
+  "groupId": null,
+  "groupOrder": null,
+  "runtimeId": null,
+  "retryStrategy": {
+    "type": "FIXED",
+    "baseBackoffSeconds": 60,
+    "maxRetries": 2,
+    "maxDurationSeconds": 600,
+    "sameRegion": true
+  },
+  "runParallel": false,
+  "request": {
+    "method": "GET",
+    "url": "https://api.checklyhq.com",
+    "skipSSL": false,
+    "ipFamily": "IPv4",
+    "bodyType": "NONE"
+  },
+  "frequency": 10,
+  "tearDownSnippetId": null,
+  "setupSnippetId": null,
+  "localSetupScript": null,
+  "localTearDownScript": null,
+  "degradedResponseTime": 10000,
+  "maxResponseTime": 20000,
+  "name": "Edited API Check"
+}
