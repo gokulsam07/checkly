@@ -14,7 +14,7 @@ import ui.core.Page;
 
 public class DashboardTest extends LoggedInBaseTest {
 
-	@Test
+	@Test(groups= {"ui","smoke"})
 	@SneakyThrows
 	public void _1createAndValidateDashboard() {
 		new HomePage().clickSidePanelMenu("Dashboards");
@@ -42,7 +42,8 @@ public class DashboardTest extends LoggedInBaseTest {
 		new DashboardsPage().validateDescription(desc);
 	}
 	
-	@Test @SneakyThrows
+	@Test (groups= {"ui","smoke"})
+	@SneakyThrows 
 	public void _3validateDeletion() {
 		new HomePage().clickSidePanelMenu("Dashboards");
 		boolean isVisible = new DashboardsPage().validateDashBoard("Gokul's Dashboard");

@@ -2,10 +2,10 @@
     "$schema": "http://json-schema.org/draft-06/schema#",
     "type": "array",
     "items": {
-        "$ref": "#/definitions/Welcome7Element"
+        "$ref": "#/definitions/Welcome5Element"
     },
     "definitions": {
-        "Welcome7Element": {
+        "Welcome5Element": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
@@ -58,12 +58,26 @@
                     "format": "date-time"
                 },
                 "updated_at": {
-                    "type": "string",
-                    "format": "date-time"
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "environmentVariables": {
-                    "type": "array",
-                    "items": {}
+                    "anyOf": [
+                        {
+                            "type": "array",
+                            "items": {}
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "doubleCheck": {
                     "type": "boolean"
@@ -114,7 +128,14 @@
                     "type": "null"
                 },
                 "retryStrategy": {
-                    "type": "null"
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/RetryStrategy"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "runParallel": {
                     "type": "boolean"
@@ -123,14 +144,14 @@
                     "type": "array",
                     "items": {}
                 },
-                "request": {
-                    "$ref": "#/definitions/Request"
-                },
                 "alertChannelSubscriptions": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/AlertChannelSubscription"
                     }
+                },
+                "request": {
+                    "$ref": "#/definitions/Request"
                 }
             },
             "required": [
@@ -167,7 +188,7 @@
                 "updated_at",
                 "useGlobalAlertSettings"
             ],
-            "title": "Welcome7Element"
+            "title": "Welcome5Element"
         },
         "AlertChannelSubscription": {
             "type": "object",
@@ -199,19 +220,18 @@
                 "runBasedEscalation": {
                     "$ref": "#/definitions/RunBasedEscalation"
                 },
-                "timeBasedEscalation": {
-                    "$ref": "#/definitions/TimeBasedEscalation"
-                },
                 "parallelRunFailureThreshold": {
                     "$ref": "#/definitions/ParallelRunFailureThreshold"
+                },
+                "timeBasedEscalation": {
+                    "$ref": "#/definitions/TimeBasedEscalation"
                 }
             },
             "required": [
                 "escalationType",
                 "parallelRunFailureThreshold",
                 "reminders",
-                "runBasedEscalation",
-                "timeBasedEscalation"
+                "runBasedEscalation"
             ],
             "title": "AlertSettings"
         },
@@ -310,7 +330,14 @@
                     }
                 },
                 "basicAuth": {
-                    "$ref": "#/definitions/BasicAuth"
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BasicAuth"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ]
                 },
                 "followRedirects": {
                     "type": "boolean"
@@ -383,6 +410,35 @@
                 "username"
             ],
             "title": "BasicAuth"
+        },
+        "RetryStrategy": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "maxRetries": {
+                    "type": "integer"
+                },
+                "sameRegion": {
+                    "type": "boolean"
+                },
+                "baseBackoffSeconds": {
+                    "type": "integer"
+                },
+                "maxDurationSeconds": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "baseBackoffSeconds",
+                "maxDurationSeconds",
+                "maxRetries",
+                "sameRegion",
+                "type"
+            ],
+            "title": "RetryStrategy"
         }
     }
 }

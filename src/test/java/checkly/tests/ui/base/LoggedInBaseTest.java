@@ -14,14 +14,14 @@ import com.codeborne.selenide.WebDriverRunner;
 public class LoggedInBaseTest {
 	String uname = Prop.get("login.properties", "username");
 	String pwd = Prop.get("login.properties", "password");
-	@BeforeMethod
+	@BeforeMethod(groups= {"ui","smoke"})
 	public void launch() {
 		open("");
 		WebDriverRunner.getWebDriver().manage().window().maximize();
 		new LoginPage().setUserName(uname).setPassword(pwd).pressLogin();
 	}
 	
-	@AfterMethod
+	@AfterMethod(groups= {"ui","smoke"})
 	public void tearDown() {
 		closeWebDriver();
 	}

@@ -30,7 +30,7 @@ public class HomePageTest extends LoggedInBaseTest {
 		assertThat(state1 && state2).isTrue();
 	}
 
-	 @Test
+	 @Test (groups= {"ui","smoke"})
 	public void validateFiltering() {
 		String str = "check";
 		List<String> filter = List.of("Passing", "Failing");
@@ -42,7 +42,7 @@ public class HomePageTest extends LoggedInBaseTest {
 
 	}
 
-	 @Test
+	 @Test (groups= {"ui","smoke"})
 	public void createData() throws InterruptedException {
 		new ChecksAPITest()._3createAPICheck();
 		new ChecksAPITest()._4createBrowserCheck();
@@ -52,7 +52,7 @@ public class HomePageTest extends LoggedInBaseTest {
 		assertThat(new HomePage().validateResult(null, items)).isTrue();
 	}
 
-	@Test
+	@Test (groups= {"ui","smoke"})
 	public void deleteDataIntegration() throws InterruptedException {
 		List<String> items = List.of("Sample API Check");
 		assertThat(new HomePage().validateResult(null, items)).isTrue();
@@ -66,7 +66,7 @@ public class HomePageTest extends LoggedInBaseTest {
 		assertThat(new HomePage().validateResult(items, null)).isTrue();
 	}
 
-	@Test
+	@Test (groups= {"ui","smoke"})
 	public void testMenu() {
 		String menu="Delete";
 		String item="Sample Browser Check";

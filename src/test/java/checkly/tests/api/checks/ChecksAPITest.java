@@ -22,7 +22,7 @@ public class ChecksAPITest {
 		path = System.getProperty("user.dir") + "/src/test/resources/data/api/";
 	}
 
-	@Test
+	@Test(groups={"api","smoke"})
 	public void _1getAllChecks() {
 		Response res = new RestController().get("checks", null);
 		res.then().assertThat()
@@ -31,7 +31,7 @@ public class ChecksAPITest {
 		System.err.println(checkIds);
 	}
 
-	@Test
+	@Test(groups={"api","smoke"})
 	public void _2getCheckUsingId() {
 		_1getAllChecks();
 		HashMap<String, String> hm = new HashMap<>();

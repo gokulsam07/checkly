@@ -15,7 +15,7 @@ public class ReportingTest extends LoggedInBaseTest {
 		assertThat(new ReportingPage().validate()).as("Reporting page is not as expected").isTrue();
 	}
 
-	@Test
+	@Test (groups= {"ui","smoke","sample"})
 	public void downloadReportAsCSVandValidateDownload() {
 		String fileName = "checkly_export.csv";
 		new HomePage().clickSidePanelMenu("Reporting");

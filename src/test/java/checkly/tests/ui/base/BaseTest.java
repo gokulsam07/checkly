@@ -11,13 +11,13 @@ import com.codeborne.selenide.WebDriverRunner;
 
 public class BaseTest {
 
-	@BeforeMethod
+	@BeforeMethod (groups= {"ui","smoke"})
 	public void launch() {
 		open("");
 		WebDriverRunner.getWebDriver().manage().window().maximize();
 	}
 
-	@AfterMethod
+	@AfterMethod(groups= {"ui","smoke"})
 	public void tearDown() {
 		closeWebDriver();
 	}

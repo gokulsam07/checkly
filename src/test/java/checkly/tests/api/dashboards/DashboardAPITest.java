@@ -12,7 +12,6 @@ import lombok.extern.java.Log;
 import rest.core.RestController;
 import test.utils.Stringify;
 @Log
-@Test(groups = {"api"})
 public class DashboardAPITest {
 	private static String path = null;
 	private String dashboardId ="";
@@ -20,7 +19,7 @@ public class DashboardAPITest {
 		path = System.getProperty("user.dir") + "/src/test/resources/data/api/";
 	}
 
-	@Test
+	@Test(groups= {"api","smoke"})
 	public void _1createBoard() {
 		String data = Stringify.JSON(path+"dashboard/create-dashboard.json");
 		Response res = new RestController().post("dashboards", data.toString(), null);
@@ -56,7 +55,7 @@ public class DashboardAPITest {
 		res.then().statusCode(200).body("description",equalTo("Edited the description to test"));
 	}
 	
-	@Test
+	@Test(groups= {"api","smoke"})
 	public void deleteDashboard() {
 		HashMap<String,String> hm =  new HashMap<>();
 		hm.put("dashboardId", dashboardId);
