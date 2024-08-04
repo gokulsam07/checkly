@@ -35,7 +35,7 @@ public class HomePageTest extends LoggedInBaseTest {
 		String str = "check";
 		List<String> filter = List.of("Passing", "Failing");
 		List<String> tags = List.of("chrome", "api");
-		List<String> visibleItems = List.of("Instagram API Check", "Check youtube", "Checkly", "FB API Check");
+		List<String> visibleItems = List.of("Instagram API Check", "Check youtube", "Checkly","FB API Check");
 		List<String> hiddenItems = List.of("https://playwright.dev", "OrangeHRM");
 		assertThat(new HomePage().applyFilter(filter).applyTags(tags).search(str).validateResult(hiddenItems,
 				visibleItems)).isTrue();
