@@ -2,3 +2,6 @@ target/
 surefire-reports/
 test-output/
 build/
+.settings/
+.classpath
+.project
