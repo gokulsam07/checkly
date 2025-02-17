@@ -1,8 +1,6 @@
 package checkly.tests.api.checks;
 
 import java.io.File;
-
-import org.testng.ITestContext;
 import org.testng.annotations.Test;
 import static org.hamcrest.Matchers.*;
 import com.jayway.jsonpath.JsonPath;

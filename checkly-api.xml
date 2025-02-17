@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="4" parallel="classes" name="checkly-automation">
-  <test thread-count="4" parallel="classes" name="api-test">
-    <classes>
-      <class name="checkly.tests.api.dashboards.DashboardAPITest"/>
-      <class name="checkly.tests.api.checks.ChecksAPITest"/>
-    </classes>
-  </test> <!-- api-test -->
-</suite> <!-- checkly-automation -->
+<suite name="checkly-automation" parallel="classes" thread-count="4">
+    <test name="api-test">
+        <packages>
+            <package name="checkly.tests.api.*"/>
+        </packages>
+    </test>
+</suite>
