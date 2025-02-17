@@ -16,14 +16,14 @@ public class DashboardTest extends LoggedInBaseTest {
 
 	@Test(groups= {"ui","smoke"})
 	@SneakyThrows
-	public void _1createAndValidateDashboard() {
+	public void tc001_createAndValidateDashboard() {
 		new HomePage().clickSidePanelMenu("Dashboards");
 		new checkly.tests.api.dashboards.DashboardAPITest().deleteAnyExistingDashboard();
 		Thread.sleep(1000);
 		Page.refresh();
 		boolean isEmpty = new DashboardsPage().validateEmptyScreen();
 		if(isEmpty) {
-			new checkly.tests.api.dashboards.DashboardAPITest()._1createBoard();
+			new checkly.tests.api.dashboards.DashboardAPITest().tc001_createBoard();
 			Thread.sleep(1000);
 			Page.refresh();
 			assertThat(new DashboardsPage().validateDashBoard("Gokul's Dashboard")).isTrue();
@@ -35,7 +35,7 @@ public class DashboardTest extends LoggedInBaseTest {
 	}
 	
 	@Test
-	public void _2validateUpdatedValue() {
+	public void tc002_validateUpdatedValue() {
 		String desc= "Sample dashboard created for automation check";
 		new HomePage().clickSidePanelMenu("Dashboards");
 		new DashboardsPage().clickDashboard("Gokul's Dashboard");
@@ -44,7 +44,7 @@ public class DashboardTest extends LoggedInBaseTest {
 	
 	@Test (groups= {"ui","smoke"})
 	@SneakyThrows 
-	public void _3validateDeletion() {
+	public void tc003_validateDeletion() {
 		new HomePage().clickSidePanelMenu("Dashboards");
 		boolean isVisible = new DashboardsPage().validateDashBoard("Gokul's Dashboard");
 		if(isVisible) {

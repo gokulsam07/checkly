@@ -23,7 +23,7 @@ public class ChecksAPITest {
 	}
 
 	@Test(groups={"api","smoke"})
-	public void _1getAllChecks() {
+	public void tc001_getAllChecks() {
 		Response res = new RestController().get("checks", null);
 		res.then().assertThat()
 				.body(JsonSchemaValidator.matchesJsonSchema(new File(path + "checks/all-checks-schema.json")));
@@ -32,8 +32,8 @@ public class ChecksAPITest {
 	}
 
 	@Test(groups={"api","smoke"})
-	public void _2getCheckUsingId() {
-		_1getAllChecks();
+	public void tc002_getCheckUsingId() {
+		tc001_getAllChecks();
 		HashMap<String, String> hm = new HashMap<>();
 		Map<String, String> tmpVal = checkIds.get(0);
 		String id = tmpVal.get("id");
@@ -43,8 +43,8 @@ public class ChecksAPITest {
 		res.then().assertThat().body("name", equalTo(name));
 	}
 
-	@Test
-	public void _3createAPICheck() {
+	@Test()
+	public void tc003_createAPICheck() {
 		String testName = "Sample API Check";
 		String data = Stringify.JSON(path + "checks/create-api-check.json");
 		Response res = new RestController().post("checks/api", data, null);
@@ -57,7 +57,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _4createBrowserCheck() {
+	public void tc004_createBrowserCheck() {
 		String testName = "Sample Browser Check";
 		String data = Stringify.JSON(path + "checks/create-browser-check.json");
 		Response res = new RestController().post("checks/browser", data, null);
@@ -70,7 +70,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _5updateAPICheck() {
+	public void tc005_updateAPICheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkAPIId);
 		String testName = "Edited API Check";
@@ -81,7 +81,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _6UpdateBrowserCheck() {
+	public void tc006_UpdateBrowserCheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkBrowserId);
 		String testName = "Edited Browser Check";
@@ -92,7 +92,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _7deleteAPICheck() {
+	public void tc007_deleteAPICheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkAPIId);
 		Response res = new RestController().delete("checks/{id}", hm);
@@ -100,7 +100,7 @@ public class ChecksAPITest {
 	}
 
 	@Test
-	public void _8deleteBrowserCheck() {
+	public void tc008_deleteBrowserCheck() {
 		HashMap<String, String> hm = new HashMap<>();
 		hm.put("id", checkBrowserId);
 		Response res = new RestController().delete("checks/{id}", hm);
@@ -110,7 +110,7 @@ public class ChecksAPITest {
 	@Test(enabled = false)
 	public void deleteCheckAPI(String id) {
 		checkAPIId = id;
-		_7deleteAPICheck();
+		tc007_deleteAPICheck();
 
 	}
 

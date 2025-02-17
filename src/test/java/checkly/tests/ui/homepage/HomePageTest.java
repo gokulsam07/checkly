@@ -1,6 +1,5 @@
 package checkly.tests.ui.homepage;
 
-import org.testng.ITestContext;
 import org.testng.annotations.Test;
 import com.codeborne.selenide.Selenide;
 import static org.assertj.core.api.Assertions.*;
@@ -16,13 +15,13 @@ public class HomePageTest extends LoggedInBaseTest {
 	String[] menuList = new String[] { "Home", "Heartbeats", "Test sessions", "Events", "Alerts", "Dashboards",
 			"Reporting", "Invite account members" };
 
-	 @Test
-	public void validateMenu() {
+	@Test
+	public void tc001_validateMenu() {
 		assertThat(new HomePage().validatePanelIsOpenWithMenu(menuList)).isTrue();
 	}
 
-	 @Test
-	public void validateStatusOfItems() {
+	@Test
+	public void tc002_validateStatusOfItems() {
 		List<String> passed = List.of("https://playwright.dev", "Check youtube", "Checkly", "FB API Check");
 		List<String> failed = List.of("Instagram API Check", "OrangeHRM");
 		boolean state1 = new HomePage().validateStatusAndItem("Passing", failed, passed);
@@ -31,7 +30,7 @@ public class HomePageTest extends LoggedInBaseTest {
 	}
 
 	 @Test (groups= {"ui","smoke"})
-	public void validateFiltering() {
+	public void tc003_validateFiltering() {
 		String str = "check";
 		List<String> filter = List.of("Passing", "Failing");
 		List<String> tags = List.of("chrome", "api");
@@ -42,10 +41,10 @@ public class HomePageTest extends LoggedInBaseTest {
 
 	}
 
-	 @Test (groups= {"ui","smoke"})
-	public void createData() throws InterruptedException {
-		new ChecksAPITest()._3createAPICheck();
-		new ChecksAPITest()._4createBrowserCheck();
+	@Test (groups= {"ui","smoke"})
+	public void tc004_createData() throws InterruptedException {
+		new ChecksAPITest().tc003_createAPICheck();
+		new ChecksAPITest().tc004_createBrowserCheck();
 		Thread.sleep(5000);
 		Selenide.refresh();
 		List<String> items = List.of("Sample API Check", "Sample Browser Check");
@@ -53,7 +52,7 @@ public class HomePageTest extends LoggedInBaseTest {
 	}
 
 	@Test (groups= {"ui","smoke"})
-	public void deleteDataIntegration() throws InterruptedException {
+	public void tc005_deleteDataIntegration() throws InterruptedException {
 		List<String> items = List.of("Sample API Check");
 		assertThat(new HomePage().validateResult(null, items)).isTrue();
 		new HomePage().clickItem(items.get(0));
@@ -67,10 +66,11 @@ public class HomePageTest extends LoggedInBaseTest {
 	}
 
 	@Test (groups= {"ui","smoke"})
-	public void testMenu() {
+	public void tc006_testMenu() {
 		String menu="Delete";
+		String subMenu ="Delete check";
 		String item="Sample Browser Check";
-		new HomePage().clickMenuForItem(menu,menu,item);
+		new HomePage().clickMenuForItem(menu,subMenu,item);
 		assertThat(new HomePage().validateResult(List.of(item), null)).isTrue();
 	}
 }

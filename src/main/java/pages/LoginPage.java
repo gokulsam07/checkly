@@ -1,22 +1,24 @@
 package pages;
 
 import static com.codeborne.selenide.Selenide.*;
-import org.openqa.selenium.By;
-import com.codeborne.selenide.Selenide;
+import static com.codeborne.selenide.Selectors.*;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Condition.*;
 import ui.core.Time;
 public class LoginPage {
-	private SelenideElement username = $(By.id("1-email"));
-	private SelenideElement password = $(By.id("1-password"));
-	private SelenideElement login = $(By.id("1-submit"));
+	private SelenideElement username = $(byAttribute("aria-label","Email address"));
+	private SelenideElement password =$(byAttribute("aria-label","Password"));
+	private SelenideElement login =$(byText("Log in"));
+	private SelenideElement ctnu =$(byText("Continue"));
+	
 	static {
 		Configuration.timeout = 10000;
 	}
 
 	public LoginPage setUserName(String uname) {
 		username.setValue(uname);
+		next();
 		return this;
 
 	}
@@ -27,12 +29,15 @@ public class LoginPage {
 	}
 
 	public LoginPage pressLogin() {
+		ctnu.pressEnter();
+		return this;
+	}
+	public LoginPage next() {
 		login.pressEnter();
 		return this;
 	}
-	
-	public String validateErrorsForInvalidCredentails() {
-		return $(".auth0-global-message-error span span").shouldBe(visible,Time.LOW).getText();
+	public void validateErrorsForInvalidCredentails() {
+		$(byText("Wrong email or password")).shouldBe(visible,Time.LOW);
 	}
 
 }

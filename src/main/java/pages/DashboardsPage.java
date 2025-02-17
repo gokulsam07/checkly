@@ -1,16 +1,11 @@
 package pages;
 
-import org.openqa.selenium.By;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.SelenideElement;
-import lombok.extern.java.Log;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import ui.core.Time;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selectors.*;
 
 public class DashboardsPage {
 	private SelenideElement newDBoard = $x("//span[normalize-space()='New Dashboard']");
@@ -24,14 +19,14 @@ public class DashboardsPage {
 	}
 
 	public boolean validateDashBoard(String boardName) {
-		return $("h4[title=\"" + boardName + "\"]").is(visible,Time.MED);
+		return $(byText(boardName)).is(visible,Time.MED);
 	}
 	
 	public void clickDashboard(String board) {
-		$("h4[title=\"" + board + "\"]").shouldBe(visible,Time.MED).click();
+		$(byText(board)).shouldBe(visible,Time.MED).click();
 	}
 	
 	public void validateDescription(String desc) {
-		$("p[class$='typography--p']").shouldHave(Condition.text(desc),Time.LOW);
+		$(byText(desc)).shouldBe(visible,Time.LOW);
 	}
 }

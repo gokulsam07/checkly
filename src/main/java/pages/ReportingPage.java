@@ -4,19 +4,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 import java.io.File;
 import java.util.List;
-
-import org.openqa.selenium.By;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-
 import lombok.SneakyThrows;
-import lombok.extern.java.Log;
-
-import com.codeborne.selenide.ClickOptions;
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.FileDownloadMode;
-
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
+
 import ui.core.Time;
 
 public class ReportingPage {
@@ -50,28 +42,26 @@ public class ReportingPage {
 		return report.stream().allMatch(e -> ($(".box-border span[title='" + e + "']")).is(hidden, Time.LOW));
 	}
 
-	@SneakyThrows
-	public ReportingPage applyFilter(List<String> filterName) {
-		$x("//span[normalize-space()='Filters']").shouldBe(visible, Time.LOW).click();
-		for (String filter : filterName) {
-			SelenideElement ele = $x("//label[contains(text(),'" + filter + "')]");
-			if (!ele.$("input").isSelected()) {
+	public ReportingPage applyFilter(List<String> filters) {
+		$(byText("Status")).shouldBe(visible, Time.LOW).click();
+		for (String filter : filters) {
+			SelenideElement ele = $(byText(filter));
+			if (!ele.preceding(0).isSelected()) {
 				ele.click();
 			} else {
 				System.out.println("Element is already selected");
 			}
 		}
-		Selenide.executeJavaScript("location.reload(true);");
+		executeJavaScript("location.reload(true);");
 		return this;
 	}
 
-	@SneakyThrows
 	public ReportingPage applyTag(List<String> tags) {
-		$x("//span[normalize-space()='Tags']").shouldBe(visible, Time.LOW).click();
+		$(byText("Tags")).shouldBe(visible, Time.LOW).click();
 		for (String tag : tags) {
-			$("div[role='listbox'] article[title='" + tag + "']").click();
+			$("[role='listbox'] [title='" + tag + "']").scrollTo().click();
 		}
-		Selenide.executeJavaScript("location.reload(true);");
+		executeJavaScript("location.reload(true);");
 		return this;
 	}
 

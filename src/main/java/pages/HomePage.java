@@ -1,17 +1,12 @@
 package pages;
 
 import static com.codeborne.selenide.Selenide.*;
-
+import static com.codeborne.selenide.Selectors.*;
 import java.util.Arrays;
 import java.util.List;
-
-import org.openqa.selenium.By;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import lombok.extern.java.Log;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
-
 import static com.codeborne.selenide.Condition.*;
 import ui.core.Time;
 
@@ -31,11 +26,10 @@ public class HomePage {
 	}
 
 	public void flexMenu(String action) {
-		String width = Selenide.executeJavaScript(
-				"return document.querySelector(\"aside[aria-label='Sidebar navigation']\").style.width");
-		if (action.equals("open") && width.equals(width + "px")) {
+		String width = $("[aria-label='Sidebar navigation']").getCssValue("width");
+		if (action.equals("open") && width.contains(width + "px")) {
 			$("button.outline-none").click();
-		} else if (action.equals("close") && width.equals(width + "px")) {
+		} else if (action.equals("close") && width.contains(width + "px")) {
 			$("button.outline-none").click();
 		} else {
 			log.info("The flex menu is already in the desired state");
@@ -44,8 +38,7 @@ public class HomePage {
 
 	public boolean validatePanelIsOpenWithMenu(String[] menus) {
 		if (validateLoginIsSuccessful()) {
-			String width = Selenide.executeJavaScript(
-					"return document.querySelector(\"aside[aria-label='Sidebar navigation']\").style.width");
+			String width = $("[aria-label='Sidebar navigation']").getCssValue("width");
 			if (width.contains("60px")) {
 				$("button.outline-none").click();
 			}
@@ -64,25 +57,25 @@ public class HomePage {
 	}
 
 	public HomePage applyFilter(List<String> filters) {
-		$x("//span[normalize-space()='Filters']").shouldBe(visible, Time.LOW).click();
+		$(byText("Status")).shouldBe(visible, Time.LOW).click();
 		for (String filter : filters) {
-			SelenideElement ele = $x("//label[contains(text(),'" + filter + "')]");
-			if (!ele.$("input").isSelected()) {
+			SelenideElement ele = $(byText(filter));
+			if (!ele.preceding(0).isSelected()) {
 				ele.click();
 			} else {
 				System.out.println("Element is already selected");
 			}
 		}
-		Selenide.executeJavaScript("location.reload(true);");
+		executeJavaScript("location.reload(true);");
 		return this;
 	}
 
 	public HomePage applyTags(List<String> tags) {
-		$x("//span[normalize-space()='Tags']").shouldBe(visible, Time.LOW).click();
+		$(byText("Tags")).shouldBe(visible, Time.LOW).click();
 		for (String tag : tags) {
-			$("div[role='listbox'] article[title='" + tag + "']").click();
+			$("[role='listbox'] [title='" + tag + "']").scrollTo().click();
 		}
-		Selenide.executeJavaScript("location.reload(true);");
+		executeJavaScript("location.reload(true);");
 		return this;
 	}
 
@@ -106,14 +99,14 @@ public class HomePage {
 	}
 
 	public void clickItem(String item) {
-		$x("//span[contains(@title, '" + item + "')]").should(visible, Time.MED).click();
+		$(byText(item)).should(visible, Time.MED).click();
 	}
 	
 	public void clickMenuForItem(String menu,String subMenu,String item) {
-		$x("//span[contains(@title, '"+item+"')]/ancestor::a//button").shouldBe(visible,Time.LOW).click();
-		$x("//div[@role='listbox']//span[contains(text(),'"+menu+"')]").shouldBe(visible,Time.LOW).click();
+		$(byText(item)).ancestor("a").$("[aria-label='Open check actions menu']").shouldBe(visible,Time.LOW).click();
+		$(byText(menu)).shouldBe(visible,Time.LOW).click();
 		if(!subMenu.isBlank()) {
-			$x("//span[normalize-space()='"+subMenu+"']").shouldBe(visible,Time.LOW).click();
+			$(byText(subMenu)).shouldBe(visible,Time.LOW).click();
 		}
 	}
 }

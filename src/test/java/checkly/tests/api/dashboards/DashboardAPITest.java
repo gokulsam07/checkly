@@ -20,7 +20,7 @@ public class DashboardAPITest {
 	}
 
 	@Test(groups= {"api","smoke"})
-	public void _1createBoard() {
+	public void tc001_createBoard() {
 		String data = Stringify.JSON(path+"dashboard/create-dashboard.json");
 		Response res = new RestController().post("dashboards", data.toString(), null);
 		log.info(res.body().asPrettyString());
@@ -30,7 +30,7 @@ public class DashboardAPITest {
 	}
 	
 	@Test
-	public void _2createBoardAgain() {
+	public void tc002_createBoardAgain() {
 		String data = Stringify.JSON(path+"dashboard/create-dashboard.json");
 		Response res = new RestController().post("dashboards", data.toString(), null);
 		log.info(res.body().asString());
@@ -39,7 +39,7 @@ public class DashboardAPITest {
 	}
 	
 	@Test
-	public void _3getDataBoardWithId() {
+	public void tc003_getDataBoardWithId() {
 		HashMap<String,String> hm =  new HashMap<>();
 		hm.put("dashboardId", dashboardId);
 		Response res = new RestController().get("dashboards/{dashboardId}",hm);
@@ -47,7 +47,7 @@ public class DashboardAPITest {
 		res.then().statusCode(200).body("header",equalTo("Gokul's Dashboard")).body("dashboardId", equalTo(dashboardId));
 	}
 	@Test
-	public void _4updateDashboard() {
+	public void tc004_updateDashboard() {
 		HashMap<String,String> hm =  new HashMap<>();
 		hm.put("dashboardId", dashboardId);
 		String data = Stringify.JSON(path+"dashboard/update-dashboard.json");
@@ -56,7 +56,7 @@ public class DashboardAPITest {
 	}
 	
 	@Test(groups= {"api","smoke"})
-	public void deleteDashboard() {
+	public void tc005_deleteDashboard() {
 		HashMap<String,String> hm =  new HashMap<>();
 		hm.put("dashboardId", dashboardId);
 		Response res = new RestController().delete("dashboards/{dashboardId}",hm);
