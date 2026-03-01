@@ -1,11 +1,11 @@
-name: checkly-ci
-run-name: "Checkly: ${{ github.event.inputs.test-suite }} ${{ github.event.inputs.extra_args }}"
+name: checkly-rerun-failed
+run-name: "Rerun [${{ github.event.inputs.test-suite }}]: ${{ github.event.inputs.extra_args }}"
 
 on:
   workflow_dispatch:
     inputs:
       test-suite:
-        description: 'Select Suite'
+        description: 'Target Suite'
         required: true
         default: 'ui'
         type: choice
@@ -13,18 +13,18 @@ on:
           - ui
           - api
       extra_args:
-        description: 'Additional Maven args'
-        required: false
+        description: 'Failed test (e.g., -Dtest=LoginTest#testMethod)'
+        required: true
         default: ''
         type: string
 
 jobs:
-  test:
+  rerun-test:
     runs-on: ubuntu-latest
     environment: playwright-test
 
     steps:
-      - uses: actions/checkout@v4 
+      - uses: actions/checkout@v4
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -33,59 +33,59 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Validate Inputs
+      - name: Validate Manual Input
         run: |
           SUITE="${{ github.event.inputs.test-suite }}"
-          ARGS="${{ github.event.inputs.extra_args }}"
-          
-          # Convert to lowercase to catch "API", "Api", "api", etc.
-          ARGS_LOWER=$(echo "$ARGS" | tr '[:upper:]' '[:lower:]')
+          ARGS_LOWER=$(echo "${{ github.event.inputs.extra_args }}" | tr '[:upper:]' '[:lower:]')
           
           if [[ "$SUITE" == "ui" && "$ARGS_LOWER" == *"api"* ]]; then
-            echo "::error::Illegal Argument: You cannot pass API arguments while running the UI suite."
+            echo "::error::Validation Failed: Cannot run API tests in UI suite."
             exit 1
           fi
-
           if [[ "$SUITE" == "api" && ( "$ARGS_LOWER" == *"ui"* || "$ARGS_LOWER" == *"selenide"* ) ]]; then
-            echo "::error::Illegal Argument: You cannot pass UI/Selenide arguments while running the API suite."
+            echo "::error::Validation Failed: Cannot run UI tests in API suite."
             exit 1
           fi
 
-      - name: Run Tests
+      - name: Download Previous Results
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-results-${{ github.event.inputs.test-suite }}
+          path: target/allure-results
+        continue-on-error: true
+
+      - name: Execute Rerun
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           ACC_ID: ${{ secrets.ACC_ID }}
           USER_GOKUL: ${{ secrets.USER_GOKUL }}
           GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
         run: |
+          # DO NOT USE 'mvn clean' here. It will delete the downloaded results.
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
+            mvn test -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
           else
-            mvn clean test -DsuiteXmlFiles=checkly-api.xml ${{ github.event.inputs.extra_args }}
+            mvn test ${{ github.event.inputs.extra_args }}
           fi
+        continue-on-error: true
 
-      - name: Generate Allure Report
+      - name: Generate Merged Report
         if: always()
         run: mvn io.qameta.allure:allure-maven:2.17.0:report
 
-      - name: Upload Allure Results (Raw Data)
+      - name: Sync Results Artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
+          overwrite: true
 
-      - name: Deploy Allure Report to GitHub Pages
+      - name: Update GitHub Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
-          keep_files: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target/site/allure-maven-plugin
           destination_dir: ${{ github.event.inputs.test-suite }}
-      - name: Post Report Link
-        if: always()
-        run: |
-          echo "### Test Results 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "Suite: ${{ github.event.inputs.test-suite }}" >> $GITHUB_STEP_SUMMARY
-          echo "Report URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/${{ github.event.inputs.test-suite }}/" >> $GITHUB_STEP_SUMMARY
+          keep_files: true
