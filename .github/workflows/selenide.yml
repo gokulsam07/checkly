@@ -1,0 +1,63 @@
+name: Selenide CI
+
+on:
+  workflow_dispatch:
+    inputs:
+      test-suite:
+        description: 'Select Suite (Choose "custom" to use the text box below)'
+        required: true
+        default: 'ui'
+        type: choice
+        options:
+        - ui
+        - api
+        - custom
+      custom_command:
+        description: 'If custom is selected, type your mvn arguments (e.g., -Dtest=MyTestClass)'
+        required: false
+        default: ''
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    environment: playwright-test
+
+    steps:
+      - uses: actions/checkout@v4 
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run Tests
+        env:
+            AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+            ACC_ID: ${{ secrets.ACC_ID }}
+            USER_GOKUL: ${{ secrets.USER_GOKUL }}
+            GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
+        run: |
+          if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
+            echo "Running UI tests..."
+            mvn test -DsuiteXmlFile=checkly-ui.xml
+          elif [ "${{ github.event.inputs.test-suite }}" == "api" ]; then
+            echo "Running API tests..."
+            mvn test -DsuiteXmlFile=checkly-api.xml 
+          elif [ "${{ github.event.inputs.test-suite }}" == "custom" ]; then
+            if [ -z "${{ github.event.inputs.custom_command }}" ]; then
+              echo "Error: Custom option selected but no command provided."
+              exit 1
+            fi
+            echo "Running custom command: mvn ${{ github.event.inputs.custom_command }}"
+            mvn ${{ github.event.inputs.custom_command }}
+          fi
+
+      - name: Upload test reports
+        if: always() 
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: target/surefire-reports
