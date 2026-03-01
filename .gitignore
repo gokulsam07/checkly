@@ -8,3 +8,4 @@ build/
 .idea/
 .metadata/
 .project
+allure-results/

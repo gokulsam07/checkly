@@ -13,7 +13,7 @@ on:
         - api
         - custom
       custom_command:
-        description: 'If custom is selected, type your mvn arguments (e.g., -Dtest=MyTestClass)'
+        description: 'Type mvn arguments (e.g., -Dtest=MyTest -Dtestng.suite.name=checkly-automation-ui)'
         required: false
         default: ''
         type: string
@@ -42,7 +42,7 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
             echo "Running UI tests..."
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true
+            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true -Dselenide.screenshots=true
           elif [ "${{ github.event.inputs.test-suite }}" == "api" ]; then
             echo "Running API tests..."
             mvn clean test -DsuiteXmlFiles=checkly-api.xml 
@@ -51,20 +51,27 @@ jobs:
               echo "Error: Custom option selected but no command provided."
               exit 1
             fi
-            echo "Running custom command: mvn ${{ github.event.inputs.custom_command }}"
+            echo "Running custom command: ${{ github.event.inputs.custom_command }}"
               ${{ github.event.inputs.custom_command }}
           fi
 
-      - name: Upload test reports
-        if: always() 
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          # This converts the raw JSON in allure-results into a viewable HTML report
+          mvn allure:report
+
+      - name: Upload Allure Results (Raw Data)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-reports
-          path: target/surefire-reports
+          name: allure-results
+          path: allure-results
 
-      - name: Deploy Report to GitHub Pages
-        if: always() 
+      - name: Deploy Allure Report to GitHub Pages
+        if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/surefire-reports
+          # IMPORTANT: allure:report generates the HTML in target/site/allure-maven-plugin
+          publish_dir: ./target/site/allure-maven-plugin

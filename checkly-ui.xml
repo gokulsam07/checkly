@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite thread-count="4" parallel="classes" name="checkly-automation">
+<suite thread-count="4" parallel="classes" name="checkly-automation-ui">
 	<test name="checkly-ui">
-		<packages>
-			<package name="ui.*"/>
-		</packages>
-	</test> 
+		
+				<classes>
+			<class name="ui.LoginTest" />
+		</classes>
+
+<!--		<packages>
+			<package name="ui.*" />
+		</packages>-->
+	</test>
 </suite>

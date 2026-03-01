@@ -1,38 +1,36 @@
 package ui.base;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.ITestResult;
-import org.testng.Reporter;
-import org.testng.annotations.AfterMethod;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.open;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-
-import static com.codeborne.selenide.Selenide.screenshot;
 
 import java.io.File;
-import java.net.MalformedURLException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+
+
+import io.qameta.allure.Allure;
+import io.qameta.allure.selenide.AllureSelenide;
 
 public class BaseTest {
 	@BeforeSuite(groups= {"ui","smoke"})
-	public void cleanUpDir() throws MalformedURLException {
-		String filesLoc = System.getProperty("user.dir") + File.separator + "build" + File.separator
-				+ "downloads";
-		try {
-			FileUtils.forceDelete(new File(filesLoc));
-		} catch (Exception e) {
-			System.out.println("Unable to delete the folder or folder not found");
-		}
-	}
+    public void setupAllure() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true));
+    }
 
 	@BeforeMethod (groups= {"ui","smoke"})
 	public void launch() {
@@ -40,7 +38,6 @@ public class BaseTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--disable-gpu");
-		options.addArguments("--headless=new");
 		options.addArguments("--disable-blink-features=AutomationControlled");
 	    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		options.setExperimentalOption("useAutomationExtension", false);
@@ -54,14 +51,16 @@ public class BaseTest {
 
 	@AfterMethod(groups= {"ui","smoke"})
 	public void tearDown(ITestResult result) {
-		Reporter.setCurrentTestResult(result);
-		if (result.getStatus() == 2) {
-			String relativeLoc = result.getMethod().getMethodName();
-			screenshot(relativeLoc);
-			String ss = System.getProperty("user.dir") + File.separator + "build" + File.separator + "reports"
-					+ File.separator + "tests" + File.separator + relativeLoc + ".png";
-			Reporter.log("<a href='" + ss + "'><img src='file://" + ss + "' width='822' height='404'/></a>");
-		}
+		if (result.getStatus() == ITestResult.FAILURE) {
+	        try {
+	        	File screenshot = Screenshots.getLastScreenshot();
+	            if (screenshot != null) {
+	                Allure.addAttachment("Failure Screenshot", new FileInputStream(screenshot));
+	            }
+	        } catch (FileNotFoundException e) {
+	            System.err.println("Could not find screenshot to attach to Allure");
+	        }
+	    }
 		closeWebDriver();
 	}
 
