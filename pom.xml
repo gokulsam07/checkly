@@ -110,6 +110,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.3.1</version>
 				<configuration>
+					<rerunFailingTestsCount>0</rerunFailingTestsCount>
 					<testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
 					<groups>${groups}</groups>
 					<suiteXmlFiles>${suiteXmlFiles}</suiteXmlFiles>
