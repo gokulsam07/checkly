@@ -42,6 +42,7 @@ public class LoggedInBaseTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--disable-gpu");
+		options.addArguments("--headless=new");
 		options.addArguments("--disable-blink-features=AutomationControlled");
 	    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		options.setExperimentalOption("useAutomationExtension", false);
