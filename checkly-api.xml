@@ -3,7 +3,7 @@
 <suite name="checkly-automation" parallel="classes" thread-count="4">
     <test name="api-test">
         <packages>
-            <package name="checkly.tests.api.*"/>
+            <package name="api.*"/>
         </packages>
     </test>
 </suite>

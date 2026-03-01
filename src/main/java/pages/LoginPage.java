@@ -1,14 +1,22 @@
 package pages;
 
 import static com.codeborne.selenide.Selenide.*;
+
+import java.time.Duration;
+
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static com.codeborne.selenide.Selectors.*;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.Configuration;
 import static com.codeborne.selenide.Condition.*;
 import ui.core.Time;
 public class LoginPage {
-	private SelenideElement username = $(byAttribute("aria-label","Email address"));
-	private SelenideElement password =$(byAttribute("aria-label","Password"));
+	private SelenideElement username = $("#username");
+	private SelenideElement password =$("#password");
 	private SelenideElement login =$(byText("Log in"));
 	private SelenideElement ctnu =$(byText("Continue"));
 	
@@ -38,6 +46,12 @@ public class LoginPage {
 	}
 	public void validateErrorsForInvalidCredentails() {
 		$(byText("Wrong email or password")).shouldBe(visible,Time.LOW);
+	}
+	
+	public boolean validateLoginIsSuccessful() {
+		WebDriverWait wait = new WebDriverWait(WebDriverRunner.getWebDriver(), Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.urlContains("account"));
+		return WebDriverRunner.getWebDriver().getCurrentUrl().contains("account");
 	}
 
 }

@@ -3,7 +3,7 @@
 <suite thread-count="4" parallel="classes" name="checkly-automation">
 	<test name="checkly-ui">
 		<packages>
-			<package name="checkly.tests.ui.*" />
+			<package name="ui.*"/>
 		</packages>
 	</test> 
 </suite>

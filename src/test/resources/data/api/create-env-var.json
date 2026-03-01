@@ -1,0 +1,5 @@
+[
+  { "key": "API_KEY", "value": "val_1", "locked": false, "secret": false },
+  { "key": "DB_PASSWORD", "value": "val_2", "locked": true, "secret": true },
+  { "key": "SERVICE_URL", "value": "val_3", "locked": false, "secret": false }
+]
