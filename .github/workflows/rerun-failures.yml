@@ -50,7 +50,6 @@ jobs:
       - name: Download Previous Results
         uses: dawidd6/action-download-artifact@v6
         with:
-          workflow: selenide.yml
           name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
           search_artifacts: true 
