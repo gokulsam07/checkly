@@ -38,7 +38,7 @@ public class BaseTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--disable-gpu");
-		options.addArguments("--headless=new");
+		options.addArguments("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36");
 		options.addArguments("--disable-blink-features=AutomationControlled");
 	    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 		options.setExperimentalOption("useAutomationExtension", false);
@@ -52,7 +52,7 @@ public class BaseTest {
 
 	@AfterMethod(groups= {"ui","smoke"})
 	public void tearDown(ITestResult result) {
-		if (result.getStatus() == ITestResult.FAILURE) {
+		if (result.getStatus() == ITestResult.FAILURE || result.getStatus() == ITestResult.SKIP ) {
 	        try {
 	        	File screenshot = Screenshots.getLastScreenshot();
 	            if (screenshot != null) {
