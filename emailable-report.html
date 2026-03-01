@@ -9,14 +9,14 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">checkly-automation</th></tr>
-<tr><td><a href="#t0">checkly-ui</a></td><td class="num">0</td><td class="num attn">3</td><td class="num">0</td><td class="num attn">2</td><td class="num">37,021</td><td></td><td></td></tr>
+<tr><td><a href="#t0">checkly-ui</a></td><td class="num">2</td><td class="num attn">2</td><td class="num">0</td><td class="num attn">1</td><td class="num">29,066</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">checkly-automation</th></tr></tbody><tbody id="t0"><tr><th colspan="4">checkly-ui &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">ui.EnvVarTest</td><td><a href="#m0">launch</a></td><td rowspan="1">1772364209427</td><td rowspan="1">23339</td></tr><tr><th colspan="4">checkly-ui &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">ui.LoginTest</td><td><a href="#m1">tc001_loginTest</a></td><td rowspan="1">1772364221199</td><td rowspan="1">11570</td></tr><tr class="failedeven"><td><a href="#m2">tc002_loginTestFail</a></td><td rowspan="1">1772364235198</td><td rowspan="1">11095</td></tr><tr><th colspan="4">checkly-ui &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="5">ui.EnvVarTest</td><td><a href="#m3">launch</a></td><td rowspan="2">1772364232784</td><td rowspan="2">0</td></tr><tr class="skippedeven"><td><a href="#m4">launch</a></td></tr><tr class="skippedeven"><td><a href="#m5">tearDown</a></td><td rowspan="3">1772364232795</td><td rowspan="3">0</td></tr><tr class="skippedeven"><td><a href="#m6">tearDown</a></td></tr><tr class="skippedeven"><td><a href="#m7">tearDown</a></td></tr><tr><th colspan="4">checkly-ui &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="3">ui.EnvVarTest</td><td><a href="#m8">tc001_createEnvVar</a></td><td rowspan="1">1772364232781</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m9">tc002_updateEnvVar</a></td><td rowspan="1">1772364232785</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m10">tc003_deleteEnvVar</a></td><td rowspan="1">1772364232788</td><td rowspan="1">1</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">checkly-automation</th></tr></tbody><tbody id="t0"><tr><th colspan="4">checkly-ui &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">ui.EnvVarTest</td><td><a href="#m0">launch</a></td><td rowspan="1">1772364582671</td><td rowspan="1">13158</td></tr><tr><th colspan="4">checkly-ui &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">ui.EnvVarTest</td><td><a href="#m1">tc001_createEnvVar</a></td><td rowspan="1">1772364578910</td><td rowspan="1">3579</td></tr><tr><th colspan="4">checkly-ui &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="3">ui.EnvVarTest</td><td><a href="#m2">launch</a></td><td rowspan="1">1772364595838</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m3">tearDown</a></td><td rowspan="2">1772364595836</td><td rowspan="2">0</td></tr><tr class="skippedeven"><td><a href="#m4">tearDown</a></td></tr><tr><th colspan="4">checkly-ui &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="2">ui.EnvVarTest</td><td><a href="#m5">tc002_updateEnvVar</a></td><td rowspan="1">1772364595835</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m6">tc003_deleteEnvVar</a></td><td rowspan="1">1772364595838</td><td rowspan="1">0</td></tr><tr><th colspan="4">checkly-ui &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">ui.LoginTest</td><td><a href="#m7">tc001_loginTest</a></td><td rowspan="1">1772364578175</td><td rowspan="1">3342</td></tr><tr class="passedeven"><td><a href="#m8">tc002_loginTestFail</a></td><td rowspan="1">1772364583996</td><td rowspan="1">1882</td></tr></tbody>
 </table>
 <h2>checkly-ui</h2><h3 id="m0">ui.EnvVarTest#launch</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
 Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.html
+Screenshot: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.png
+Page source: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.html
 Timeout: 10 s.
 Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
 	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
@@ -44,9 +44,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c2991437b4efe39312d606a4654e8ce5, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36001}, goog:processID: 2546, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36001/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c2991437b4efe39312d606a4654e8ce5
+Command: [6073eef92d8a2a18c903118a2b9117d9, findElement {value=#password, using=css selector}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36843}, goog:processID: 2996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36843/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6073eef92d8a2a18c903118a2b9117d9
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -65,119 +65,21 @@ Session ID: c2991437b4efe39312d606a4654e8ce5
 	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
 	... 32 more
 ... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">ui.LoginTest#tc001_loginTest</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href='/home/runner/work/checkly/checkly/build/reports/tests/tc001_loginTest.png'><img src='file:///home/runner/work/checkly/checkly/build/reports/tests/tc001_loginTest.png' width='822' height='404'/></a></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
-Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.1.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.1.html
-Timeout: 10 s.
-Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
-	at com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
-	at com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:141)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:125)
-	at com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsEditable(WebElementSource.java:182)
-	at com.codeborne.selenide.commands.SetValue.setValueForTextInput(SetValue.java:58)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:43)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:25)
-	at com.codeborne.selenide.commands.Commands.execute(Commands.java:162)
-	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
-	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
-	at jdk.proxy2/jdk.proxy2.$Proxy7.setValue(Unknown Source)
-	at pages.LoginPage.setPassword(LoginPage.java:35)
-	at ui.LoginTest.tc001_loginTest(LoginTest.java:16)
+<h3 id="m1">ui.EnvVarTest#tc001_createEnvVar</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href='/home/runner/work/checkly/checkly/build/reports/tests/tc001_createEnvVar.png'><img src='file:///home/runner/work/checkly/checkly/build/reports/tests/tc001_createEnvVar.png' width='822' height='404'/></a></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Environment variable not created successfully expected [true] but found [false]
+	at ui.EnvVarTest.tc001_createEnvVar(EnvVarTest.java:18)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-  (Session info: chrome=145.0.7632.116)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [3dd96bbe3623921d22f529fd0df951ca, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:37753}, goog:processID: 2547, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:37753/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 3dd96bbe3623921d22f529fd0df951ca
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
-	at com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
-	... 28 more
-... Removed 17 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">ui.LoginTest#tc002_loginTestFail</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href='/home/runner/work/checkly/checkly/build/reports/tests/tc002_loginTestFail.png'><img src='file:///home/runner/work/checkly/checkly/build/reports/tests/tc002_loginTestFail.png' width='822' height='404'/></a></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
+... Removed 16 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">ui.EnvVarTest#launch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">ui.EnvVarTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">ui.EnvVarTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">ui.EnvVarTest#tc002_updateEnvVar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
 Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364246246.2.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364246246.2.html
-Timeout: 10 s.
-Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
-	at com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
-	at com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:141)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:125)
-	at com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsEditable(WebElementSource.java:182)
-	at com.codeborne.selenide.commands.SetValue.setValueForTextInput(SetValue.java:58)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:43)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:25)
-	at com.codeborne.selenide.commands.Commands.execute(Commands.java:162)
-	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
-	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
-	at jdk.proxy2/jdk.proxy2.$Proxy7.setValue(Unknown Source)
-	at pages.LoginPage.setPassword(LoginPage.java:35)
-	at ui.LoginTest.tc002_loginTestFail(LoginTest.java:22)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-  (Session info: chrome=145.0.7632.116)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f25c757a43616da6e00daef6c7084f05, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:39835}, goog:processID: 3063, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:39835/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: f25c757a43616da6e00daef6c7084f05
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
-	at com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
-	... 28 more
-... Removed 17 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">ui.EnvVarTest#launch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">ui.EnvVarTest#launch</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">ui.EnvVarTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">ui.EnvVarTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">ui.EnvVarTest#tearDown</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">ui.EnvVarTest#tc001_createEnvVar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
-Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.html
+Screenshot: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.png
+Page source: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.html
 Timeout: 10 s.
 Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
 	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
@@ -205,9 +107,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c2991437b4efe39312d606a4654e8ce5, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36001}, goog:processID: 2546, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36001/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c2991437b4efe39312d606a4654e8ce5
+Command: [6073eef92d8a2a18c903118a2b9117d9, findElement {value=#password, using=css selector}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36843}, goog:processID: 2996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36843/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6073eef92d8a2a18c903118a2b9117d9
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -226,10 +128,10 @@ Session ID: c2991437b4efe39312d606a4654e8ce5
 	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
 	... 32 more
 ... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">ui.EnvVarTest#tc002_updateEnvVar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
+<h3 id="m6">ui.EnvVarTest#tc003_deleteEnvVar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
 Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.html
+Screenshot: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.png
+Page source: file:/home/runner/work/checkly/checkly/target/surefire-reports/1772364595765.0.html
 Timeout: 10 s.
 Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
 	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
@@ -257,9 +159,9 @@ For documentation on this error, please visit: https://www.selenium.dev/document
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c2991437b4efe39312d606a4654e8ce5, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36001}, goog:processID: 2546, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36001/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c2991437b4efe39312d606a4654e8ce5
+Command: [6073eef92d8a2a18c903118a2b9117d9, findElement {value=#password, using=css selector}]
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36843}, goog:processID: 2996, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36843/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6073eef92d8a2a18c903118a2b9117d9
 	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
 	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
@@ -278,57 +180,7 @@ Session ID: c2991437b4efe39312d606a4654e8ce5
 	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
 	... 32 more
 ... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">ui.EnvVarTest#tc003_deleteEnvVar</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">Element not found {#password}
-Expected: editable
-Screenshot: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.png
-Page source: file:/home/runner/work/checkly/checkly/build/reports/tests/1772364232676.0.html
-Timeout: 10 s.
-Caused by: NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-	at com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:89)
-	at com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:142)
-	at com.codeborne.selenide.impl.WebElementSource.handleError(WebElementSource.java:141)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:125)
-	at com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsEditable(WebElementSource.java:182)
-	at com.codeborne.selenide.commands.SetValue.setValueForTextInput(SetValue.java:58)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:43)
-	at com.codeborne.selenide.commands.SetValue.execute(SetValue.java:25)
-	at com.codeborne.selenide.commands.Commands.execute(Commands.java:162)
-	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:132)
-	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:84)
-	at jdk.proxy2/jdk.proxy2.$Proxy7.setValue(Unknown Source)
-	at pages.LoginPage.setPassword(LoginPage.java:35)
-	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:45)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#password&quot;}
-  (Session info: chrome=145.0.7632.116)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [c2991437b4efe39312d606a4654e8ce5, findElement {value=#password, using=css selector}]
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 145.0.7632.116, chrome: {chromedriverVersion: 145.0.7632.117 (de4e5d6e13b..., userDataDir: /tmp/org.chromium.Chromium....}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:36001}, goog:processID: 2546, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:cdp: ws://localhost:36001/devtoo..., se:cdpVersion: 145.0.7632.116, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: accept, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: c2991437b4efe39312d606a4654e8ce5
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:70)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:44)
-	at com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:33)
-	at com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:122)
-	at com.codeborne.selenide.impl.WebElementSource.checkConditionAndReturnElement(WebElementSource.java:114)
-	... 32 more
-... Removed 21 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">ui.LoginTest#tc001_loginTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m8">ui.LoginTest#tc002_loginTestFail</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>
