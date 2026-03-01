@@ -139,6 +139,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.3.1</version>
 				<configuration>
+					<systemPropertyVariables>
+						<allure.results.directory>
+							${project.build.directory}/allure-results</allure.results.directory>
+					</systemPropertyVariables>
 					<rerunFailingTestsCount>0</rerunFailingTestsCount>
 					<argLine>
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
@@ -173,7 +177,8 @@
 				<artifactId>allure-maven</artifactId>
 				<version>2.17.0</version>
 				<configuration>
-					<reportVersion>2.25.0</reportVersion> <!-- telling allure mvn to use this version for allure report generation -->
+					<reportVersion>2.25.0</reportVersion> <!-- telling allure mvn
+					to use this version for allure report generation -->
 					<reportDirectory>
 						${project.build.directory}/site/allure-maven-plugin</reportDirectory>
 				</configuration>
