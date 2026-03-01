@@ -3,22 +3,11 @@
 <suite thread-count="4" parallel="classes" name="Failed suite [checkly-automation]" guice-stage="DEVELOPMENT" verbose="0">
   <test thread-count="4" parallel="classes" name="checkly-ui(failed)" verbose="0">
     <classes>
-      <class name="ui.LoginTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="launch"/>
-          <include name="tc001_loginTest"/>
-          <include name="cleanUpDir"/>
-          <include name="tc002_loginTestFail"/>
-        </methods>
-      </class> <!-- ui.LoginTest -->
       <class name="ui.EnvVarTest">
         <methods>
           <include name="tc003_deleteEnvVar"/>
           <include name="cleanUpDir"/>
           <include name="tearDown"/>
-          <include name="tc001_createEnvVar"/>
-          <include name="tc002_updateEnvVar"/>
           <include name="launch"/>
         </methods>
       </class> <!-- ui.EnvVarTest -->
