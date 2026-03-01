@@ -1,19 +1,19 @@
 name: checkly-ci
-run-name: "Checkly Automation: ${{ github.event.inputs.test-suite }} "
+run-name: "Checkly: ${{ github.event.inputs.test-suite }} ${{ github.event.inputs.extra_args }}"
 
 on:
   workflow_dispatch:
     inputs:
       test-suite:
-        description: 'Select Suite (Choose "custom" to use the text box below)'
+        description: 'Select Suite'
         required: true
         default: 'ui'
         type: choice
         options:
-        - ui
-        - api
-        extra_args:
-        description: 'Additional Maven args (e.g. -Dtest=LoginTest)'
+          - ui
+          - api
+      extra_args:
+        description: 'Additional Maven args'
         required: false
         default: ''
         type: string
@@ -38,26 +38,26 @@ jobs:
           SUITE="${{ github.event.inputs.test-suite }}"
           ARGS="${{ github.event.inputs.extra_args }}"
           
-          # Logic: If UI is selected, block any string containing "api" 
-          if [[ "$SUITE" == "ui" && "$ARGS" == *"api"* ]]; then
+          # Convert to lowercase to catch "API", "Api", "api", etc.
+          ARGS_LOWER=$(echo "$ARGS" | tr '[:upper:]' '[:lower:]')
+          
+          if [[ "$SUITE" == "ui" && "$ARGS_LOWER" == *"api"* ]]; then
             echo "::error::Illegal Argument: You cannot pass API arguments while running the UI suite."
             exit 1
           fi
 
-          # Logic: If API is selected, block any string containing "ui" or "selenide"
-          if [[ "$SUITE" == "api" && ( "$ARGS" == *"ui"* || "$ARGS" == *"selenide"* ) ]]; then
+          if [[ "$SUITE" == "api" && ( "$ARGS_LOWER" == *"ui"* || "$ARGS_LOWER" == *"selenide"* ) ]]; then
             echo "::error::Illegal Argument: You cannot pass UI/Selenide arguments while running the API suite."
             exit 1
           fi
 
       - name: Run Tests
         env:
-            AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-            ACC_ID: ${{ secrets.ACC_ID }}
-            USER_GOKUL: ${{ secrets.USER_GOKUL }}
-            GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          ACC_ID: ${{ secrets.ACC_ID }}
+          USER_GOKUL: ${{ secrets.USER_GOKUL }}
+          GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
         run: |
-          |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
             mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
           else
@@ -66,18 +66,13 @@ jobs:
 
       - name: Generate Allure Report
         if: always()
-        run: |
-          ## This converts the raw JSON in allure-results into a viewable HTML report
-          # mvn allure:report
-          # Use the full groupId and artifactId to avoid the "prefix" error
-          mvn io.qameta.allure:allure-maven:2.17.0:report
-
+        run: mvn io.qameta.allure:allure-maven:2.17.0:report
 
       - name: Upload Allure Results (Raw Data)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: allure-results
+          name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
 
       - name: Deploy Allure Report to GitHub Pages
@@ -86,6 +81,5 @@ jobs:
         with:
           keep_files: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # IMPORTANT: allure:report generates the HTML in target/site/allure-maven-plugin
           publish_dir: ./target/site/allure-maven-plugin
           destination_dir: ${{ github.event.inputs.test-suite }}
