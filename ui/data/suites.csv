@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Sun Mar 01 16:15:59 UTC 2026","Sun Mar 01 16:16:10 UTC 2026","11250","Surefire suite","Surefire test","ui.LoginTest","ui.LoginTest","tc002_loginTestFail","tc002_loginTestFail",""
+"passed","Sun Mar 01 16:29:43 UTC 2026","Sun Mar 01 16:29:45 UTC 2026","2227","Surefire suite","Surefire test","ui.LoginTest","ui.LoginTest","tc002_loginTestFail","tc002_loginTestFail",""
