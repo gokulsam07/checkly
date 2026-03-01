@@ -48,11 +48,14 @@ jobs:
           fi
 
       - name: Download Previous Results
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v6
         with:
+          workflow: checkly-ci.yml
           name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
-        continue-on-error: true
+          workflow_conclusion: success 
+          if_no_artifact_found: warn
+          continue-on-error: true
 
       - name: Execute Rerun
         env:
