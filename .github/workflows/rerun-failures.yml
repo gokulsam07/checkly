@@ -82,7 +82,7 @@ jobs:
         with:
           name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
-          overwrite: true
+          overwrite: false
 
       - name: Update GitHub Pages
         if: always()
