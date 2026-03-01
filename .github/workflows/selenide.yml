@@ -42,7 +42,7 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
             echo "Running UI tests..."
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml
+            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dheadless=true
           elif [ "${{ github.event.inputs.test-suite }}" == "api" ]; then
             echo "Running API tests..."
             mvn clean test -DsuiteXmlFiles=checkly-api.xml 
@@ -52,7 +52,7 @@ jobs:
               exit 1
             fi
             echo "Running custom command: mvn ${{ github.event.inputs.custom_command }}"
-            mvn ${{ github.event.inputs.custom_command }}
+              ${{ github.event.inputs.custom_command }}
           fi
 
       - name: Upload test reports
