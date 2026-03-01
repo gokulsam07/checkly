@@ -1,4 +1,5 @@
-name: Selenide CI
+name: checkly-ci
+run-name: "Checkly Automation: ${{ github.event.inputs.test-suite }} "
 
 on:
   workflow_dispatch:
@@ -11,9 +12,8 @@ on:
         options:
         - ui
         - api
-        - custom
-      custom_command:
-        description: 'Type mvn arguments (e.g., -Dtest=MyTest -Dtestng.suite.name=checkly-automation-ui)'
+        extra_args:
+        description: 'Additional Maven args (e.g. -Dtest=LoginTest)'
         required: false
         default: ''
         type: string
@@ -33,6 +33,23 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Validate Inputs
+        run: |
+          SUITE="${{ github.event.inputs.test-suite }}"
+          ARGS="${{ github.event.inputs.extra_args }}"
+          
+          # Logic: If UI is selected, block any string containing "api" 
+          if [[ "$SUITE" == "ui" && "$ARGS" == *"api"* ]]; then
+            echo "::error::Illegal Argument: You cannot pass API arguments while running the UI suite."
+            exit 1
+          fi
+
+          # Logic: If API is selected, block any string containing "ui" or "selenide"
+          if [[ "$SUITE" == "api" && ( "$ARGS" == *"ui"* || "$ARGS" == *"selenide"* ) ]]; then
+            echo "::error::Illegal Argument: You cannot pass UI/Selenide arguments while running the API suite."
+            exit 1
+          fi
+
       - name: Run Tests
         env:
             AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
@@ -40,19 +57,11 @@ jobs:
             USER_GOKUL: ${{ secrets.USER_GOKUL }}
             GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
         run: |
+          |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
-            echo "Running UI tests..."
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true -Dselenide.screenshots=true
-          elif [ "${{ github.event.inputs.test-suite }}" == "api" ]; then
-            echo "Running API tests..."
-            mvn clean test -DsuiteXmlFiles=checkly-api.xml 
-          elif [ "${{ github.event.inputs.test-suite }}" == "custom" ]; then
-            if [ -z "${{ github.event.inputs.custom_command }}" ]; then
-              echo "Error: Custom option selected but no command provided."
-              exit 1
-            fi
-            echo "Running custom command: ${{ github.event.inputs.custom_command }}"
-              ${{ github.event.inputs.custom_command }}
+            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
+          else
+            mvn clean test -DsuiteXmlFiles=checkly-api.xml ${{ github.event.inputs.extra_args }}
           fi
 
       - name: Generate Allure Report
@@ -75,6 +84,8 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v4
         with:
+          keep_files: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
           # IMPORTANT: allure:report generates the HTML in target/site/allure-maven-plugin
           publish_dir: ./target/site/allure-maven-plugin
+          destination_dir: ${{ github.event.inputs.test-suite }}
