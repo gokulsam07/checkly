@@ -42,7 +42,7 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
             echo "Running UI tests..."
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dheadless=true
+            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true
           elif [ "${{ github.event.inputs.test-suite }}" == "api" ]; then
             echo "Running API tests..."
             mvn clean test -DsuiteXmlFiles=checkly-api.xml 
