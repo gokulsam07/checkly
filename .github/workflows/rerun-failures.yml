@@ -50,7 +50,7 @@ jobs:
       - name: Download Previous Results
         uses: dawidd6/action-download-artifact@v6
         with:
-          workflow: checkly-ci.yml
+          workflow: selenide.yml
           name: allure-results-${{ github.event.inputs.test-suite }}
           path: target/allure-results
           workflow_conclusion: success 
