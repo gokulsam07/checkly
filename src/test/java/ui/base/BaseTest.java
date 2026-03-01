@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selenide.screenshot;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.util.Collections;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
@@ -36,6 +37,10 @@ public class BaseTest {
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--disable-gpu");
+		options.addArguments("--headless=new");
+		options.addArguments("--disable-blink-features=AutomationControlled");
+	    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+		options.setExperimentalOption("useAutomationExtension", false);
 		Configuration.browserCapabilities = options;
 		open("");
 		WebDriverRunner.getWebDriver().manage().window().maximize();
