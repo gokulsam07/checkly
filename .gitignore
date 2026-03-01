@@ -5,3 +5,5 @@ build/
 .settings/
 .classpath
 .project
+.idea/
+.metadata/
