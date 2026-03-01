@@ -58,8 +58,11 @@ jobs:
       - name: Generate Allure Report
         if: always()
         run: |
-          # This converts the raw JSON in allure-results into a viewable HTML report
-          mvn allure:report
+          ## This converts the raw JSON in allure-results into a viewable HTML report
+          # mvn allure:report
+          # Use the full groupId and artifactId to avoid the "prefix" error
+          mvn io.qameta.allure:allure-maven:2.25.0:report
+
 
       - name: Upload Allure Results (Raw Data)
         if: always()
