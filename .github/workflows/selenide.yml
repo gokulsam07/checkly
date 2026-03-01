@@ -59,9 +59,9 @@ jobs:
           GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
         run: |
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
-            mvn clean test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
+            mvn test -DsuiteXmlFiles=checkly-ui.xml -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
           else
-            mvn clean test -DsuiteXmlFiles=checkly-api.xml ${{ github.event.inputs.extra_args }}
+            mvn test -DsuiteXmlFiles=checkly-api.xml ${{ github.event.inputs.extra_args }}
           fi
 
       - name: Generate Allure Report
