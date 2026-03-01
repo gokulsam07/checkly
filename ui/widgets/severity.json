@@ -1,0 +1,1 @@
+[{"uid":"adcdbdbfa681e8c4","name":"tc001_loginTest","time":{"start":1772380799793,"stop":1772380804680,"duration":4887},"status":"passed","severity":"normal"},{"uid":"89e1466e40ad54b2","name":"tc002_loginTestFail","time":{"start":1772380806629,"stop":1772380817632,"duration":11003},"status":"failed","severity":"normal"}]
