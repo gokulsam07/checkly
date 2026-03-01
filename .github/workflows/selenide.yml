@@ -61,3 +61,10 @@ jobs:
         with:
           name: test-reports
           path: target/surefire-reports
+
+      - name: Deploy Report to GitHub Pages
+        if: always() 
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/surefire-reports
