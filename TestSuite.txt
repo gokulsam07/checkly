@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 15, Failures: 2, Errors: 0, Skipped: 13, Time elapsed: 10.40 s <<< FAILURE! -- in TestSuite
-ui.EnvVarTest.launch -- Time elapsed: 10.22 s <<< FAILURE!
+Tests run: 15, Failures: 2, Errors: 0, Skipped: 13, Time elapsed: 22.90 s <<< FAILURE! -- in TestSuite
+ui.LoginTest.launch -- Time elapsed: 22.72 s <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
 Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: 'runnervmnay03', ip: '10.1.0.208'
+Host info: host: 'runnervmnay03', ip: '10.1.0.164'
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-1017-azure', java.version: '17.0.18'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=<-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=<-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -45,7 +45,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:36)
+	at ui.base.BaseTest.launch(BaseTest.java:40)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -69,14 +69,14 @@ selenide.baseUrl: https://app.checklyhq.com
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:840)
 
-ui.LoginTest.launch -- Time elapsed: 10.23 s <<< FAILURE!
+ui.EnvVarTest.launch -- Time elapsed: 22.73 s <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
 Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: 'runnervmnay03', ip: '10.1.0.208'
+Host info: host: 'runnervmnay03', ip: '10.1.0.164'
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'amd64', os.version: '6.14.0-1017-azure', java.version: '17.0.18'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=<-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=<-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -112,7 +112,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.BaseTest.launch(BaseTest.java:35)
+	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:43)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

@@ -150,11 +150,11 @@
                   </a> <!-- tc001_loginTest -->
                   <span class="method-name">tc001_loginTest</span>
                   <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.208&apos;
+Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.164&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -190,7 +190,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.BaseTest.launch(BaseTest.java:35)
+	at ui.base.BaseTest.launch(BaseTest.java:40)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -206,11 +206,11 @@ selenide.baseUrl: https://app.checklyhq.com
                   </a> <!-- tc002_loginTestFail -->
                   <span class="method-name">tc002_loginTestFail</span>
                   <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.208&apos;
+Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.164&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -246,7 +246,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.BaseTest.launch(BaseTest.java:35)
+	at ui.base.BaseTest.launch(BaseTest.java:40)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -270,11 +270,11 @@ selenide.baseUrl: https://app.checklyhq.com
                   </a> <!-- tc001_createEnvVar -->
                   <span class="method-name">tc001_createEnvVar</span>
                   <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.208&apos;
+Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.164&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -310,7 +310,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:36)
+	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:43)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -326,11 +326,11 @@ selenide.baseUrl: https://app.checklyhq.com
                   </a> <!-- tc002_updateEnvVar -->
                   <span class="method-name">tc002_updateEnvVar</span>
                   <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.208&apos;
+Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.164&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -366,7 +366,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:36)
+	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:43)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -382,11 +382,11 @@ selenide.baseUrl: https://app.checklyhq.com
                   </a> <!-- tc003_deleteEnvVar -->
                   <span class="method-name">tc003_deleteEnvVar</span>
                   <div class="stack-trace">org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: Chrome instance exited. Examine ChromeDriver verbose log to determine the cause. 
-Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.208&apos;
+Host info: host: &apos;runnervmnay03&apos;, ip: &apos;10.1.0.164&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.14.0-1017-azure&apos;, java.version: &apos;17.0.18&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
+Command: [null, newSession {capabilities=[Capabilities {acceptInsecureCerts: true, browserName: chrome, goog:chromeOptions: {args: [--proxy-bypass-list=&lt;-loopb..., --disable-dev-shm-usage, --window-size=1366,768, --no-sandbox, --disable-gpu], binary: /usr/bin/google-chrome, excludeSwitches: [enable-automation, load-extension], extensions: [], prefs: {credentials_enable_service: false, download.default_directory: /home/runner/work/checkly/c..., plugins.always_open_pdf_externally: true, profile.default_content_setting_values.automatic_downloads: 1, profile.password_manager_enabled: false, safebrowsing.enabled: true}}, pageLoadStrategy: normal, unhandledPromptBehavior: accept}]}]
 selenide.url: https://app.checklyhq.com
 selenide.baseUrl: https://app.checklyhq.com
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
@@ -422,7 +422,7 @@ selenide.baseUrl: https://app.checklyhq.com
 	at com.codeborne.selenide.drivercommands.Navigator.open(Navigator.java:31)
 	at com.codeborne.selenide.SelenideDriver.open(SelenideDriver.java:93)
 	at com.codeborne.selenide.Selenide.open(Selenide.java:53)
-	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:36)
+	at ui.base.LoggedInBaseTest.launch(LoggedInBaseTest.java:43)
 	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
@@ -496,30 +496,30 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(5);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'tc001_createEnvVar')
-data.setCell(0, 2, 'ui.EnvVarTest')
+data.setCell(0, 1, 'tc001_loginTest')
+data.setCell(0, 2, 'ui.LoginTest')
 data.setCell(0, 3, 1);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'tc001_loginTest')
+data.setCell(1, 1, 'tc002_loginTestFail')
 data.setCell(1, 2, 'ui.LoginTest')
-data.setCell(1, 3, 1);
+data.setCell(1, 3, 0);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'tc002_loginTestFail')
-data.setCell(2, 2, 'ui.LoginTest')
+data.setCell(2, 1, 'tc001_createEnvVar')
+data.setCell(2, 2, 'ui.EnvVarTest')
 data.setCell(2, 3, 0);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'tc003_deleteEnvVar')
+data.setCell(3, 1, 'tc002_updateEnvVar')
 data.setCell(3, 2, 'ui.EnvVarTest')
 data.setCell(3, 3, 0);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'tc002_updateEnvVar')
+data.setCell(4, 1, 'tc003_deleteEnvVar')
 data.setCell(4, 2, 'ui.EnvVarTest')
 data.setCell(4, 3, 0);
 window.suiteTableData['checkly_automation']= { tableData: data, tableDiv: 'times-div-checkly_automation'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 ms</span>
+              <span class="suite-total-time">Total running time: 1 ms</span>
               <div id="times-div-checkly_automation">
               </div> <!-- times-div-checkly_automation -->
             </div> <!-- times-div -->
@@ -569,14 +569,8 @@ return data;
               <div class="chronological-class-name">ui.EnvVarTest</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">cleanUpDir</span>
-                <span class="method-start">17 ms</span>
+                <span class="method-start">15 ms</span>
               </div> <!-- configuration-suite before -->
-              <div class="configuration-method before">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">launch</span>
-                <span class="method-start">43 ms</span>
-              </div> <!-- configuration-method before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">ui.LoginTest</div> <!-- chronological-class-name -->
@@ -584,22 +578,34 @@ return data;
                 <img src="failed.png">
                 </img>
                 <span class="method-name">launch</span>
-                <span class="method-start">44 ms</span>
+                <span class="method-start">47 ms</span>
+              </div> <!-- configuration-method before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ui.EnvVarTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">launch</span>
+                <span class="method-start">47 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">launch</span>
-                <span class="method-start">9498 ms</span>
+                <span class="method-start">21550 ms</span>
+              </div> <!-- configuration-method before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">ui.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">launch</span>
+                <span class="method-start">21552 ms</span>
               </div> <!-- configuration-method before -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">ui.EnvVarTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">launch</span>
-                <span class="method-start">9499 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">launch</span>
-                <span class="method-start">9504 ms</span>
+                <span class="method-start">21553 ms</span>
               </div> <!-- configuration-method before -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
