@@ -1,6 +1,7 @@
 package ui.base;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.Reporter;
@@ -12,6 +13,8 @@ import static com.codeborne.selenide.Selenide.screenshot;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import pages.LoginPage;
 import test.utils.Prop;
@@ -46,6 +49,9 @@ public class LoggedInBaseTest {
 		options.setExperimentalOption("useAutomationExtension", false);
 		Configuration.browserCapabilities = options;
 		open("");
+		Map<String,Object> params = new HashMap<>();
+		params.put("source", "Object.defineProperty(navigator, 'webdriver', {get: () => undefined})");
+		((ChromeDriver) WebDriverRunner.getWebDriver()).executeCdpCommand("Page.addScriptToEvaluateOnNewDocument", params);
 		WebDriverRunner.getWebDriver().manage().window().maximize();
 		new LoginPage().setUserName(uname).setPassword(pwd).pressLogin();
 	}
