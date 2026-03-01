@@ -1,6 +1,7 @@
 package ui.base;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +17,7 @@ import test.utils.Prop;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
 public class LoggedInBaseTest {
@@ -33,6 +35,11 @@ public class LoggedInBaseTest {
 	}
 	@BeforeMethod(groups= {"ui","smoke"})
 	public void launch() {
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--disable-gpu");
+		Configuration.browserCapabilities = options;
 		open("");
 		WebDriverRunner.getWebDriver().manage().window().maximize();
 		new LoginPage().setUserName(uname).setPassword(pwd).pressLogin();
