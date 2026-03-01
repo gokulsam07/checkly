@@ -1,3 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Sun Mar 01 16:00:06 UTC 2026","Sun Mar 01 16:00:17 UTC 2026","11003","checkly-automation-ui","checkly-ui","ui.LoginTest","ui.LoginTest","tc002_loginTestFail","tc002_loginTestFail",""
-"passed","Sun Mar 01 15:59:59 UTC 2026","Sun Mar 01 16:00:04 UTC 2026","4887","checkly-automation-ui","checkly-ui","ui.LoginTest","ui.LoginTest","tc001_loginTest","tc001_loginTest",""
+"failed","Sun Mar 01 16:15:59 UTC 2026","Sun Mar 01 16:16:10 UTC 2026","11250","Surefire suite","Surefire test","ui.LoginTest","ui.LoginTest","tc002_loginTestFail","tc002_loginTestFail",""
