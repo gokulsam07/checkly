@@ -22,6 +22,12 @@ jobs:
   rerun-test:
     runs-on: ubuntu-latest
     environment: playwright-test
+    env:
+            AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+            ACC_ID: ${{ secrets.ACC_ID }}
+            USER_GOKUL: ${{ secrets.USER_GOKUL }}
+            GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
+            INCORRECT_PASSWORD: ${{ secrets.INCORRECT_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -57,17 +63,12 @@ jobs:
           if_no_artifact_found: warn
 
       - name: Execute Rerun
-        env:
-          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
-          ACC_ID: ${{ secrets.ACC_ID }}
-          USER_GOKUL: ${{ secrets.USER_GOKUL }}
-          GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
         run: |
           # DO NOT USE 'mvn clean' here. It will delete the downloaded results.
           if [ "${{ github.event.inputs.test-suite }}" == "ui" ]; then
-            mvn test -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
+            mvn test -Dselenide.baseUrl=https://app.checklyhq.com -Dselenide.headless=true ${{ github.event.inputs.extra_args }}
           else
-            mvn test ${{ github.event.inputs.extra_args }}
+            mvn test -Dselenide.baseUrl=https://api.checklyhq.com/v1/ ${{ github.event.inputs.extra_args }}
           fi
         continue-on-error: true
 
