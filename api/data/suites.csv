@@ -1,6 +1,6 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sun Mar 01 15:59:23 UTC 2026","Sun Mar 01 15:59:23 UTC 2026","237","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc002_updateEnvVar","tc002_updateEnvVar",""
 "passed","Sun Mar 01 15:59:23 UTC 2026","Sun Mar 01 15:59:23 UTC 2026","217","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc004_getAllEnvVar","tc004_getAllEnvVar",""
 "passed","Sun Mar 01 15:59:22 UTC 2026","Sun Mar 01 15:59:23 UTC 2026","769","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc001_createEnvVar","tc001_createEnvVar",""
 "passed","Sun Mar 01 15:59:23 UTC 2026","Sun Mar 01 15:59:23 UTC 2026","211","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc003_getEnvVarbyKey","tc003_getEnvVarbyKey",""
+"passed","Sun Mar 01 15:59:23 UTC 2026","Sun Mar 01 15:59:23 UTC 2026","237","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc002_updateEnvVar","tc002_updateEnvVar",""
 "passed","Sun Mar 01 15:59:23 UTC 2026","Sun Mar 01 15:59:25 UTC 2026","1209","checkly-automation-api","api-test","api.EnvVarAPITest","api.EnvVarAPITest","tc005_deleteEnvVar","tc005_deleteEnvVar",""
