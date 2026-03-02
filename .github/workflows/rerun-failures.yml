@@ -21,13 +21,12 @@ on:
 jobs:
   rerun-test:
     runs-on: ubuntu-latest
-    environment: playwright-test
+    environment: selenide-test
     env:
             AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
             ACC_ID: ${{ secrets.ACC_ID }}
             USER_GOKUL: ${{ secrets.USER_GOKUL }}
             GOKUL_PASSWORD: ${{ secrets.GOKUL_PASSWORD }}
-            INCORRECT_PASSWORD: ${{ secrets.INCORRECT_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
