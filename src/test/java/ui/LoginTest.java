@@ -4,12 +4,12 @@ import org.testng.annotations.Test;
 import static org.assertj.core.api.Assertions.*;
 
 import pages.LoginPage;
-import test.utils.Prop;
 import ui.base.BaseTest;
+import utils.Env;
 
 public class LoginTest extends BaseTest {
-	String uname = Prop.get("login.properties", "username");
-	String pwd = Prop.get("login.properties", "password");
+	String uname = Env.get("username", "USER_GOKUL");
+	String pwd = Env.get("password", "GOKUL_PASSWORD");
 	String error = "Wrong email or password.";
 	@Test
 	public void tc001_loginTest() {

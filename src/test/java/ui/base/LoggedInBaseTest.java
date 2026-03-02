@@ -25,11 +25,11 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Allure;
 import io.qameta.allure.selenide.AllureSelenide;
 import pages.LoginPage;
-import test.utils.Prop;
+import utils.Env;
 
 public class LoggedInBaseTest {
-	String uname = Prop.get("login.properties", "username");
-	String pwd = Prop.get("login.properties", "password");
+	String uname = Env.get("username", "USER_GOKUL");
+	String pwd = Env.get("password", "GOKUL_PASSWORD");
 	
 	@BeforeSuite(groups= {"ui","smoke"})
     public void setupAllure() {

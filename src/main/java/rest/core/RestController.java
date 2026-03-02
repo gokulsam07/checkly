@@ -3,27 +3,30 @@ package rest.core;
 import static io.restassured.RestAssured.given;
 
 import java.io.File;
-import java.io.FileReader;
 import java.util.Map;
-import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-import org.testng.Assert;
+
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
+import org.testng.Assert;
+
+import com.codeborne.selenide.Configuration;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import lombok.SneakyThrows;
+import utils.Env;
 
 public class RestController {
 
-	private static final String baseURI = "https://api.checklyhq.com/v1/";
+	private static final String baseURI = Configuration.baseUrl;
 	private static final String accept = "application/json";
 	private static final String content_type = "application/json";
-	private static final String auth = "Bearer cu_07a0d0097b4c4c078a29998c169eee65";
-	private static final String account_Id = "1bb0c953-2795-49a4-80f9-ef77b75960a6";
+	private static final String auth = Env.get("auth","AUTH_TOKEN");
+	private static final String account_Id = Env.get("accId","ACC_ID");
 	RequestSpecification req;
 
 	public RestController() {
